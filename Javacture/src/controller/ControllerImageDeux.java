@@ -22,7 +22,7 @@ public class ControllerImageDeux {
 	public ControllerImageDeux() {}
 	
 	@FXML
-	public void onMouseClick(MouseEvent e) {
+	public void onMouseClickImageView(MouseEvent e) {
 		System.out.println("Test click ?");
 		if(e.getButton()==MouseButton.PRIMARY)
 			onMouseClickLeft(e);
@@ -31,6 +31,18 @@ public class ControllerImageDeux {
 		else
 			System.out.println("Aucune correspondance trouvé");
 
+	}
+	
+	@FXML
+	public void onMouseClickAnchorPane(MouseEvent e) {
+		if(e.getButton()==MouseButton.SECONDARY)
+			onMouseClickRightAnchorPane(e);
+		else
+			System.out.println("Aucune correspondance trouvé");
+	}
+	
+	public void onMouseClickRightAnchorPane(MouseEvent e) {
+		System.out.println("Click droit sur le panel");
 	}
 	
 	public void onMouseClickLeft(MouseEvent e) {
