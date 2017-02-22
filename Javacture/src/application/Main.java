@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 
 public class Main extends Application {
 	
-	final URL fxmlURL = getClass().getResource("FXML_base.fxml");
+	final URL fxmlURL = getClass().getResource("FXML_central.fxml");
 	final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
 	
 	@Override
