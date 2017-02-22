@@ -7,9 +7,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="229.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerImageDeux">
    <children>
-      <Pane fx:id="_cadreImage" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;">
+      <Pane fx:id="_cadreImage" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: ;">
          <children>
-            <ImageView fx:id="_imageView2Control" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#onMouseClickImageView" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="_imageView2Control" fitHeight="150.0" fitWidth="200.0" layoutX="15.0" layoutY="16.0" onMouseClicked="#onMouseClickImageView" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@ressource/test.png" />
                </image>

@@ -9,6 +9,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,6 +23,10 @@ public class ControllerImageDeux {
 	private ImageView _imageView2Control;
 	@FXML
 	private Pane _cadreImage;
+	
+	private String fontColor = "white";
+	private String borderColor = "white";
+	private String widthBorder = "1";
 	
 	public ControllerImageDeux() {}
 	
@@ -77,18 +82,77 @@ public class ControllerImageDeux {
 	public void onMouseClickRight(MouseEvent e) {
 		ContextMenu ctxMenu = new ContextMenu();
 		MenuItem mniChargeImage = new MenuItem("Charger une image");
-		MenuItem mniChangeColor = new MenuItem("Changer la couleur de fond");
+		Menu menuChangeColor = new Menu("Changer la couleur de fond");
+		MenuItem mniChangeColorBlue = new MenuItem("Bleu");
+		MenuItem mniChangeColorRed = new MenuItem("Rouge");
+		MenuItem mniChangeColorGreen = new MenuItem("Vert");
+		MenuItem mniChangeColorYellow = new MenuItem("Jaune");
+		Menu menuChangeColorBorder = new Menu("Changer la couleur de la bordure");
+		MenuItem mniChangeColorBorderBlue = new MenuItem("Bleu");
+		MenuItem mniChangeColorBorderRed = new MenuItem("Rouge");
+		MenuItem mniChangeColorBorderGreen = new MenuItem("Vert");
+		MenuItem mniChangeColorBorderYellow = new MenuItem("Jaune");
+		Menu menuChangeWidthBorder = new Menu("Changer l'epaisseur de la bordure");
+		MenuItem mniChangeWidthOne = new MenuItem("1");
+		MenuItem mniChangeWidthTwo = new MenuItem("2");
 		ctxMenu.getItems().add(mniChargeImage);
-		ctxMenu.getItems().add(mniChangeColor);
+		ctxMenu.getItems().add(menuChangeColor);
+		menuChangeColor.getItems().add(mniChangeColorBlue);
+		menuChangeColor.getItems().add(mniChangeColorRed);
+		menuChangeColor.getItems().add(mniChangeColorGreen);
+		menuChangeColor.getItems().add(mniChangeColorYellow);
+		ctxMenu.getItems().add(menuChangeColorBorder);
+		menuChangeColorBorder.getItems().add(mniChangeColorBorderBlue);
+		menuChangeColorBorder.getItems().add(mniChangeColorBorderRed);
+		menuChangeColorBorder.getItems().add(mniChangeColorBorderGreen);
+		menuChangeColorBorder.getItems().add(mniChangeColorBorderYellow);
+		ctxMenu.getItems().add(menuChangeWidthBorder);
+		menuChangeWidthBorder.getItems().add(mniChangeWidthOne);
+		menuChangeWidthBorder.getItems().add(mniChangeWidthTwo);
 		mniChargeImage.setOnAction(event -> {
-			System.out.println("je veux charger une image");
-			//ctxMenu.setImpl_showRelativeToWindow(false);
+			//System.out.println("je veux charger une image");
 			ctxMenu.hide();
 			uploadImage();
 		});
-		mniChangeColor.setOnAction(event -> {
+		mniChangeColorBlue.setOnAction(event -> {
 			System.out.println(""+_cadreImage.styleProperty().getValue());
-			_cadreImage.styleProperty().setValue("-fx-background-color: blue;");		
+			changeColor("blue");
+		});
+		mniChangeColorRed.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeColor("red");
+		});
+		mniChangeColorGreen.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeColor("green");
+		});
+		mniChangeColorYellow.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeColor("yellow");
+		});
+		mniChangeColorBorderBlue.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeColorBorder("blue");
+		});
+		mniChangeColorBorderRed.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeColorBorder("red");
+		});
+		mniChangeColorBorderGreen.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeColorBorder("green");
+		});
+		mniChangeColorBorderYellow.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeColorBorder("yellow");
+		});
+		mniChangeWidthOne.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeWidthBorder("1");
+		});
+		mniChangeWidthTwo.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			changeWidthBorder("2");
 		});
 
 		ctxMenu.setImpl_showRelativeToWindow(true);
@@ -109,5 +173,23 @@ public class ControllerImageDeux {
 			Image imageTmp = new Image("file:///"+fichier.getPath()); 
 			_imageView2Control.setImage(imageTmp);
 		}	
+	}
+	
+	public void changeColor(String color){
+		fontColor = color;
+		_cadreImage.styleProperty().setValue("-fx-background-color: "+color+"; -fx-border-color: "+borderColor+";"
+				+ "-fx-border-width: "+widthBorder+"");
+	}
+	
+	public void changeColorBorder(String color){
+		borderColor = color;
+		_cadreImage.styleProperty().setValue("-fx-background-color: "+fontColor+"; -fx-border-color: "+color+";"
+				+ "-fx-border-width: "+widthBorder+"");
+	}
+	
+	public void changeWidthBorder(String width){
+		widthBorder = width;
+		_cadreImage.styleProperty().setValue("-fx-background-color: "+fontColor+"; -fx-border-color: "+borderColor+";"
+				+ "-fx-border-width: "+width+"");
 	}
 }
