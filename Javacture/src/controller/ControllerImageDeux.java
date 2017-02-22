@@ -14,11 +14,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 public class ControllerImageDeux {
 
 	@FXML
 	private ImageView _imageView2Control;
+	@FXML
+	private Pane _cadreImage;
 	
 	public ControllerImageDeux() {}
 	
@@ -33,6 +36,12 @@ public class ControllerImageDeux {
 			System.out.println("Aucune correspondance trouvé");
 
 	}
+	/*
+	@FXML
+	menuColor.setOnAction(event -> {
+		Platform.exit();
+	});
+*/
 	
 	@FXML
 	public void onMouseClickAnchorPane(MouseEvent e) {
@@ -47,6 +56,8 @@ public class ControllerImageDeux {
 	}
 	
 	public void onMouseClickLeft(MouseEvent e) {
+		uploadImage();
+		/*
 		FileFilter imagesFilter = new FileNameExtensionFilter("Images (*.jpg, *.jpeg, *.png)","jpg", "jpeg", "png");
 		JFileChooser dialogue = new JFileChooser(new File("."));
 		dialogue.setDialogTitle("Choisir une image");
@@ -60,13 +71,43 @@ public class ControllerImageDeux {
 			Image imageTmp = new Image("file:///"+fichier.getPath()); 
 			_imageView2Control.setImage(imageTmp);
 		}		
+		*/
 	}
 	
 	public void onMouseClickRight(MouseEvent e) {
 		ContextMenu ctxMenu = new ContextMenu();
 		MenuItem mniChargeImage = new MenuItem("Charger une image");
+		MenuItem mniChangeColor = new MenuItem("Changer la couleur de fond");
 		ctxMenu.getItems().add(mniChargeImage);
+		ctxMenu.getItems().add(mniChangeColor);
+		mniChargeImage.setOnAction(event -> {
+			System.out.println("je veux charger une image");
+			//ctxMenu.setImpl_showRelativeToWindow(false);
+			ctxMenu.hide();
+			uploadImage();
+		});
+		mniChangeColor.setOnAction(event -> {
+			System.out.println(""+_cadreImage.styleProperty().getValue());
+			_cadreImage.styleProperty().setValue("-fx-background-color: blue;");		
+		});
+
 		ctxMenu.setImpl_showRelativeToWindow(true);
 		ctxMenu.show(_imageView2Control,e.getScreenX(),e.getScreenY());
+	}
+	
+	public void uploadImage(){
+		FileFilter imagesFilter = new FileNameExtensionFilter("Images (*.jpg, *.jpeg, *.png)","jpg", "jpeg", "png");
+		JFileChooser dialogue = new JFileChooser(new File("."));
+		dialogue.setDialogTitle("Choisir une image");
+		dialogue.setFileFilter(imagesFilter);
+		File fichier;
+		
+		if (dialogue.showOpenDialog(null)== 
+		    JFileChooser.APPROVE_OPTION) {
+		    fichier = dialogue.getSelectedFile();
+			System.out.println(fichier.getPath());
+			Image imageTmp = new Image("file:///"+fichier.getPath()); 
+			_imageView2Control.setImage(imageTmp);
+		}	
 	}
 }
