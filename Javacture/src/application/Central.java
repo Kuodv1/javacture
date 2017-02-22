@@ -26,6 +26,6 @@ public class Central {
 	}
 	
 	public void initialize() {
-		System.out.println("Central UP");
+		System.out.println("Central UP");//Jamais appelé
 	}
 }
