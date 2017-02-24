@@ -3,6 +3,7 @@ package controller;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
@@ -13,7 +14,7 @@ public class ControllerEditableAgencement {
 	private Pane cadreImageToEdit;
 	
 	@FXML
-	private Pane _cadreImage;
+	private ColorPicker _ColorPicker;
 	
 
 	private final String stringBackgroundColor =  "-fx-background-color: ";
@@ -132,4 +133,17 @@ public class ControllerEditableAgencement {
 	public void click_normal_border(ActionEvent e){
 		setBorderRadius("1");
 	}
+	
+	public void click_color(ActionEvent e){
+		borderColor = "#"+_ColorPicker.getValue().toString().substring(2);
+		System.out.println("couleur : "+borderColor);
+		applyStyle();
+	}
+	/*
+	_ColorPicker.setOnAction(event -> {
+        System.out.println("couleur : "+_ColorPicker.getValue().toString().substring(1,8));
+        //colorPicker.getValue().toString().substring(1):
+        cadreImageToEdit.styleProperty().setValue("-fx-background-color: #"+_ColorPicker.getValue().toString().substring(2));
+        //text.setFill(colorPicker.getValue());               
+    });*/
 }

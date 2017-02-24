@@ -173,7 +173,7 @@ public class ControllerImageDeux {
         
         ControllerEditableAgencement cea = fxmlLoader.getController();
         cea.setCadreImageToEdit(_cadreImage);
-        Scene scene = new Scene(root, 240, 100);
+        Scene scene = new Scene(root, 240, 200);
         stage.setScene(scene);
         stage.show();
 	}
