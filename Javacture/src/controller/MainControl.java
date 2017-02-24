@@ -6,7 +6,11 @@ import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
+import application.DialogMessage;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -73,42 +77,73 @@ public class MainControl {
 		loaderFXML(fxmlURLAgencementDeux);
 	}
 	
-	public void save_image(BufferedImage bImage, String type) {
-		File imFile = new File("saveTest."+type);
+	public void save_image(BufferedImage bImage, String type, File path) {
+
 		try {
-			if(!ImageIO.write(bImage, type, imFile))
-				System.out.println("Erreur lors de la sauvegarde");
+			if(!ImageIO.write(bImage, type, path))
+				DialogMessage.ErrorDialogMessage("Erreur de sauvegarde...",
+						"Une erreur est survenu lors de la sauvegarde.\nLe fichier n'a pas été sauvegardé.");
+			else
+				DialogMessage.SuccessDialogMessage("Sauvegarde réussit", "Le fichier a bien été sauvegardé.");
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Erreur lors de la sauvegarde de l'image");
+			System.out.println("Exception lors de la sauvegarde de l'image : "+e.toString());
 			e.printStackTrace();
 		}
 	}
 	
 	public void click_export_jpeg(ActionEvent e) {
 		System.out.println("Export jpeg !");
-		WritableImage snapshot = _VBoxCentral.snapshot(null, null);
-		BufferedImage bImage = SwingFXUtils.fromFXImage(snapshot, null);
-		BufferedImage bImage2 = new BufferedImage(bImage.getWidth(), bImage.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
-		bImage2.getGraphics().drawImage(bImage, 0, 0, null);
-		save_image(bImage2,"jpeg");
+		String type = "jpeg";
+		File path = getFileChooser(type);
+		if(path!=null) {
+			WritableImage snapshot = _VBoxCentral.snapshot(null, null);
+			BufferedImage bImage = SwingFXUtils.fromFXImage(snapshot, null);
+			BufferedImage bImage2 = new BufferedImage(bImage.getWidth(), bImage.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
+			bImage2.getGraphics().drawImage(bImage, 0, 0, null);
+			save_image(bImage2,type,path);
+		}
 	}
 	
 	public void click_export_bmp(ActionEvent e) {
 		System.out.println("Export bmp !");
-		WritableImage snapshot = _VBoxCentral.snapshot(null, null);
-		BufferedImage bImage = SwingFXUtils.fromFXImage(snapshot, null);
-		BufferedImage bImage2 = new BufferedImage(bImage.getWidth(), bImage.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
-		bImage2.getGraphics().drawImage(bImage, 0, 0, null);
-		save_image(bImage2,"bmp"); //besoin d'enlever le composant A de RGBA (de même pour jpeg)
+		String type = "bmp";
+		File path = getFileChooser(type);
+		if(path!=null) {
+			WritableImage snapshot = _VBoxCentral.snapshot(null, null);
+			BufferedImage bImage = SwingFXUtils.fromFXImage(snapshot, null);
+			BufferedImage bImage2 = new BufferedImage(bImage.getWidth(), bImage.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
+			bImage2.getGraphics().drawImage(bImage, 0, 0, null);
+			save_image(bImage2,type,path); //besoin d'enlever le composant A de RGBA (de même pour jpeg)
+		}
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void click_export_png(ActionEvent e) {
 		System.out.println("Export png !");
-		WritableImage snapshot = _VBoxCentral.snapshot(null, null);
-		BufferedImage bImage = SwingFXUtils.fromFXImage(snapshot, null);
-		save_image(bImage,"png");		
+		String type = "png";
+		File path = getFileChooser(type);
+		if(path!=null) {
+			WritableImage snapshot = _VBoxCentral.snapshot(null, null);
+			BufferedImage bImage = SwingFXUtils.fromFXImage(snapshot, null);
+			save_image(bImage,type,path);
+		}
+	}
+	
+	
+	public File getFileChooser(String type) {
+		JFileChooser fc = new JFileChooser();
+		FileFilter imagesFilter = new FileNameExtensionFilter("Images (*."+type+")",type);
+		fc.setAcceptAllFileFilterUsed(false);
+		fc.setFileFilter(imagesFilter);
+		File file = null;
+		
+        int returnVal = fc.showSaveDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            file = new File(fc.getSelectedFile().getAbsolutePath()+"."+type);
+        }
+		return file;
 	}
 	/*
 	_ColorPicker.setOnAction(new EventHandler() {
