@@ -5,13 +5,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="157.0" prefWidth="168.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerEditableAgencement">
    <children>
       <VBox prefHeight="400.0" prefWidth="157.0">
          <children>
             <Label prefHeight="17.0" prefWidth="138.0" text="Epaisseur de la bordure" />
-            <Slider max="10.0" />
+            <Slider fx:id="_sliderWidthBorder" max="10.0" />
             <Label text="Type de bordure" />
          </children>
       </VBox>
