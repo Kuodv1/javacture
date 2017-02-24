@@ -119,7 +119,6 @@ public class MainControl {
 		}
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void click_export_png(ActionEvent e) {
 		System.out.println("Export png !");
 		String type = "png";
