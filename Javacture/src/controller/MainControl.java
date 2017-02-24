@@ -10,6 +10,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import application.DialogMessage;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -69,10 +70,14 @@ public class MainControl {
 
 		try {
 			if(!ImageIO.write(bImage, type, path))
-				System.out.println("Erreur lors de la sauvegarde");
+				DialogMessage.ErrorDialogMessage("Erreur de sauvegarde...",
+						"Une erreur est survenu lors de la sauvegarde.\nLe fichier n'a pas été sauvegardé.");
+			else
+				DialogMessage.SuccessDialogMessage("Sauvegarde réussit", "Le fichier a bien été sauvegardé.");
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Erreur lors de la sauvegarde de l'image");
+			System.out.println("Exception lors de la sauvegarde de l'image : "+e.toString());
 			e.printStackTrace();
 		}
 	}
