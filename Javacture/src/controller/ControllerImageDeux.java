@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
@@ -8,6 +10,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -16,6 +21,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class ControllerImageDeux {
 
@@ -62,24 +70,9 @@ public class ControllerImageDeux {
 	
 	public void onMouseClickLeft(MouseEvent e) {
 		uploadImage();
-		/*
-		FileFilter imagesFilter = new FileNameExtensionFilter("Images (*.jpg, *.jpeg, *.png)","jpg", "jpeg", "png");
-		JFileChooser dialogue = new JFileChooser(new File("."));
-		dialogue.setDialogTitle("Choisir une image");
-		dialogue.setFileFilter(imagesFilter);
-		File fichier;
-		
-		if (dialogue.showOpenDialog(null)== 
-		    JFileChooser.APPROVE_OPTION) {
-		    fichier = dialogue.getSelectedFile();
-			System.out.println(fichier.getPath());
-			Image imageTmp = new Image("file:///"+fichier.getPath()); 
-			_imageView2Control.setImage(imageTmp);
-		}		
-		*/
 	}
 	
-	public void onMouseClickRight(MouseEvent e) {
+	public ContextMenu setMenu() {
 		ContextMenu ctxMenu = new ContextMenu();
 		MenuItem mniChargeImage = new MenuItem("Charger une image");
 		Menu menuChangeColor = new Menu("Changer la couleur de fond");
@@ -109,6 +102,8 @@ public class ControllerImageDeux {
 		ctxMenu.getItems().add(menuChangeWidthBorder);
 		menuChangeWidthBorder.getItems().add(mniChangeWidthOne);
 		menuChangeWidthBorder.getItems().add(mniChangeWidthTwo);
+		
+		
 		mniChargeImage.setOnAction(event -> {
 			//System.out.println("je veux charger une image");
 			ctxMenu.hide();
@@ -154,14 +149,39 @@ public class ControllerImageDeux {
 			System.out.println(""+_cadreImage.styleProperty().getValue());
 			changeWidthBorder("2");
 		});
-
+		
+		return ctxMenu;
+	}
+	
+	public void onMouseClickRight(MouseEvent e) {
+		ContextMenu ctxMenu = setMenu();
 		ctxMenu.setImpl_showRelativeToWindow(true);
 		ctxMenu.show(_imageView2Control,e.getScreenX(),e.getScreenY());
+		
+		
+		Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+    	URL fxmlURL = getClass().getResource("/fxml_folder/FXML_editableAgencement.fxml");//Vue contenant les 3 agencements
+    	FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
+    	VBox root = new VBox();
+        try {
+			root.getChildren().add(fxmlLoader.load());
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        
+        ControllerEditableAgencement cea = fxmlLoader.getController();
+        cea.setCadreImageToEdit(_cadreImage);
+        Scene scene = new Scene(root, 200, 100);
+        stage.setScene(scene);
+        stage.show();
 	}
 	
 	public void uploadImage(){
 		FileFilter imagesFilter = new FileNameExtensionFilter("Images (*.jpg, *.jpeg, *.png)","jpg", "jpeg", "png");
 		JFileChooser dialogue = new JFileChooser(new File("."));
+		dialogue.setAcceptAllFileFilterUsed(false);
 		dialogue.setDialogTitle("Choisir une image");
 		dialogue.setFileFilter(imagesFilter);
 		File fichier;
