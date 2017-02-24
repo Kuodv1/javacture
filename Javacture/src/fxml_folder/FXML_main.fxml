@@ -12,6 +12,13 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
+                  <Menu mnemonicParsing="false" text="Exporter...">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#click_export_bmp" text="bmp" />
+                        <MenuItem mnemonicParsing="false" onAction="#click_export_jpeg" text="jpeg" />
+                        <MenuItem mnemonicParsing="false" onAction="#click_export_png" text="png" />
+                    </items>
+                  </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
