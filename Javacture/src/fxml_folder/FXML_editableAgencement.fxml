@@ -14,7 +14,7 @@
             <Label prefHeight="17.0" prefWidth="138.0" text="Epaisseur de la bordure" />
             <Slider fx:id="_sliderWidthBorder" max="10.0" />
             <Label text="Type de bordure" />
-            <HBox prefHeight="100.0" prefWidth="295.0">
+            <HBox prefHeight="35.0" prefWidth="239.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#click_plein_border" prefHeight="25.0" prefWidth="50.0" text="Plein" />
                   <Button mnemonicParsing="false" onAction="#click_point_border" text="Point" />
@@ -25,6 +25,8 @@
             </HBox>
             <Label text="couleur de bordure" />
             <ColorPicker fx:id="_ColorPicker" onAction="#click_color" />
+            <Label text="Couleur de fond" />
+            <ColorPicker fx:id="_ColorFontPicker" onAction="#click_font_color" />
          </children>
       </VBox>
    </children>

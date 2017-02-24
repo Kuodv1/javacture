@@ -15,6 +15,8 @@ public class ControllerEditableAgencement {
 	
 	@FXML
 	private ColorPicker _ColorPicker;
+	@FXML
+	private ColorPicker _ColorFontPicker;
 	
 
 	private final String stringBackgroundColor =  "-fx-background-color: ";
@@ -137,6 +139,12 @@ public class ControllerEditableAgencement {
 	public void click_color(ActionEvent e){
 		borderColor = "#"+_ColorPicker.getValue().toString().substring(2);
 		System.out.println("couleur : "+borderColor);
+		applyStyle();
+	}
+	
+	public void click_font_color(ActionEvent e){
+		fontColor = "#"+_ColorFontPicker.getValue().toString().substring(2);
+		System.out.println("couleur : "+fontColor);
 		applyStyle();
 	}
 	/*
