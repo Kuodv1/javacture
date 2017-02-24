@@ -15,15 +15,18 @@ public class ControllerEditableAgencement {
 	@FXML
 	private Pane _cadreImage;
 	
-	private String borderStyle = "solid";
-	private String borderRadius = "1";
-	
+
 	private final String stringBackgroundColor =  "-fx-background-color: ";
 	private String fontColor = "white";
 	
 	private final String stringBorderColor = "-fx-border-color: ";
 	private String borderColor = "blue";
 	
+	private final String stringBorderStyle = "-fx-border-style: ";
+	private String borderStyle = "solid";
+
+	private final String stringBorderRadius = "-fx-border-radius: ";
+	private String borderRadius = "1";	
 	
 	@FXML
 	Slider _sliderWidthBorder;
@@ -41,27 +44,36 @@ public class ControllerEditableAgencement {
 	}
 	
 	public void reloadParam(String style) {
-		int startBackgrounColor = style.indexOf(stringBackgroundColor); 
-		if(startBackgrounColor>=0)
-			fontColor = style.substring(startBackgrounColor+stringBackgroundColor.length(), style.indexOf(';', startBackgrounColor));
+		int startBackgroundColor = style.indexOf(stringBackgroundColor); 
+		if(startBackgroundColor>=0)
+			fontColor = reloadValue(style,stringBackgroundColor,startBackgroundColor);
 		
 		int startBorderColor = style.indexOf(stringBorderColor);
 		if(startBorderColor>=0)
-			borderColor = style.substring(startBorderColor+stringBorderColor.length(), style.indexOf(';', startBorderColor));
+			borderColor = reloadValue(style,stringBorderColor,startBorderColor);
 		
 		int startBorderWidth = style.indexOf(stringBorderWidth);
 		if(startBorderWidth>=0)
-			widthBorder = style.substring(startBorderWidth+stringBorderWidth.length(), style.indexOf(';', startBorderWidth));
+			widthBorder = reloadValue(style,stringBorderWidth,startBorderWidth);
 		
+		int startBorderStyle = style.indexOf(stringBorderStyle);
+		if(startBorderStyle>=0) 
+			borderStyle = reloadValue(style,stringBorderStyle,startBorderStyle);
+		
+		int startBorderRadius = style.indexOf(stringBorderRadius);
+		if(startBorderRadius>=0)
+			borderRadius = reloadValue(style,stringBorderRadius,startBorderRadius);
+		
+	}
+	
+	public String reloadValue(String style, String stringType, int valueOccurence) {
+		return style.substring(valueOccurence+stringType.length(), style.indexOf(';',valueOccurence));
 	}
 	
 	public void setCadreImageToEdit(Pane cadreImageToEdit) {
 		this.cadreImageToEdit = cadreImageToEdit;
 		
 		this.reloadParam(cadreImageToEdit.getStyle());
-		
-		/*cadreImageToEdit.styleProperty().setValue(" -fx-border-color: "+"blue"+";"
-				+ "-fx-border-width: "+5+";");*/
 		
 		System.out.println(cadreImageToEdit.getStyle());
 				
@@ -86,47 +98,38 @@ public class ControllerEditableAgencement {
 	public void applyStyle() {
 		cadreImageToEdit.styleProperty().setValue("-fx-background-color: "+fontColor+";"+
 				" -fx-border-color: "+borderColor+";"
-				+ "-fx-border-width: "+widthBorder+";");
-		System.out.println("apply?");
-		System.out.println(cadreImageToEdit.getStyle());
+				+ "-fx-border-width: "+widthBorder+";"
+				+  "-fx-border-style: "+borderStyle+"; "
+				+	"-fx-border-radius: "+borderRadius+";");
 	}
 	
 	public void setBorderStyle(String border){
 		borderStyle = border;
-		cadreImageToEdit.styleProperty().setValue("-fx-border-color: black;"
-				+ "-fx-border-width: 1; -fx-border-style: "+border+"; "
-						+ "-fx-border-radius: "+borderRadius+";");
+		applyStyle();
 	}
 	
 	public void setBorderRadius(String border){
 		borderRadius = border;
-		cadreImageToEdit.styleProperty().setValue("-fx-border-color: black;"
-				+ "-fx-border-width: 1; -fx-border-style: "+borderStyle+"; "
-						+ "-fx-border-radius: "+border+";");
+		applyStyle();
 	}
 	
 	public void click_point_border(ActionEvent e){
 		setBorderStyle("dotted");
-		System.out.println("bordure pointille "+cadreImageToEdit.styleProperty().getValue());
 	}
 	
 	public void click_dash_border(ActionEvent e){
 		setBorderStyle("dashed");
-		System.out.println("bordure pointille "+cadreImageToEdit.styleProperty().getValue());
 	}
 	
 	public void click_plein_border(ActionEvent e){
 		setBorderStyle("solid");
-		System.out.println("bordure pleine "+cadreImageToEdit.styleProperty().getValue());
 	}
 	
 	public void click_round_border(ActionEvent e){
 		setBorderRadius("12");
-		System.out.println("bordure pleine "+cadreImageToEdit.styleProperty().getValue());
 	}
 	
 	public void click_normal_border(ActionEvent e){
 		setBorderRadius("1");
-		System.out.println("bordure pleine "+cadreImageToEdit.styleProperty().getValue());
 	}
 }
