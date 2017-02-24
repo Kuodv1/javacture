@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -30,6 +32,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#click_agencement_deux" text="Agencement 2" />
                     </items>
                   </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#click_change_color" text="Changer Couleurs" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -39,6 +42,13 @@
           </Menu>
         </menus>
       </MenuBar>
-      <VBox fx:id="_VBoxCentral" prefHeight="200.0" prefWidth="100.0" />
+      <VBox fx:id="_VBoxCentral" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ColorPicker fx:id="_ColorPicker">
+               <VBox.margin>
+                  <Insets right="1.0" />
+               </VBox.margin>
+            </ColorPicker>
+         </children></VBox>
    </children>
 </VBox>

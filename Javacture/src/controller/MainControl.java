@@ -9,17 +9,28 @@ import javax.imageio.ImageIO;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class MainControl {
 	
 	@FXML
 	public VBox _VBoxCentral;
+	@FXML
+	public ColorPicker _ColorPicker;
 	
 	public Scene scene;
 	
@@ -92,10 +103,49 @@ public class MainControl {
 		save_image(bImage2,"bmp"); //besoin d'enlever le composant A de RGBA (de même pour jpeg)
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void click_export_png(ActionEvent e) {
 		System.out.println("Export png !");
 		WritableImage snapshot = _VBoxCentral.snapshot(null, null);
 		BufferedImage bImage = SwingFXUtils.fromFXImage(snapshot, null);
 		save_image(bImage,"png");		
 	}
+	/*
+	_ColorPicker.setOnAction(new EventHandler() {
+		public void handle(Event e) {
+			// TODO Auto-generated method stub
+			System.out.println("Couleur "+_ColorPicker.getValue());
+			//Color c = _ColorPicker.getValue();
+			//_VBoxCentral.styleProperty().setValue("");
+			//_VBoxCentral.setFill(_ColorPicker.getValue());
+		}
+    });*/
+	
+	public void click_change_color(ActionEvent e){
+		System.out.println(" test couleur");
+		Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        //Label modalityLabel = new Label("Bonjour tout le monde...!");
+        VBox root = new VBox();
+        ColorPicker colorPicker = new ColorPicker();
+        root.getChildren().add(colorPicker);
+        Scene scene = new Scene(root, 200, 100);
+        
+        colorPicker.setOnAction(event -> {
+            System.out.println("couleur : "+colorPicker.getValue().toString().substring(1,8));
+            //colorPicker.getValue().toString().substring(1):
+            _VBoxCentral.styleProperty().setValue("-fx-background-color: #"+colorPicker.getValue().toString().substring(2));
+            //text.setFill(colorPicker.getValue());               
+        });
+        
+        stage.setScene(scene);
+        stage.show();
+	}
+	
+	/*
+	_ColorPicker.setOnAction(new EventHandler() {
+        public void handle(Event t) {
+            text.setFill(colorPicker.getValue());               
+        }
+    });*/
 }
