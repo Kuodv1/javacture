@@ -40,6 +40,7 @@ public class MainControl {
 	
 	final URL fxmlURLAgencementUn = getClass().getResource("/fxml_folder/FXML_central_agencement_un.fxml");//Vue contenant les 3 agencements
 	final URL fxmlURLAgencementDeux = getClass().getResource("/fxml_folder/FXML_central_agencement_deux.fxml");//Vue contenant les 3 agencements
+	final URL fxmlURLAgencementTrois = getClass().getResource("/fxml_folder/FXML_central_agencement_trois.fxml");//Vue contenant les 3 agencements
 	
 	public void initialize() {
 		System.out.println("MainControl : init test ?");
@@ -75,6 +76,12 @@ public class MainControl {
 		System.out.println("Choix agencement deux");
 		//central.choixAgencementDeux();
 		loaderFXML(fxmlURLAgencementDeux);
+	}
+	
+	public void click_agencement_trois(ActionEvent e) {
+		System.out.println("Choix agencement deux");
+		//central.choixAgencementDeux();
+		loaderFXML(fxmlURLAgencementTrois);
 	}
 	
 	public void save_image(BufferedImage bImage, String type, File path) {

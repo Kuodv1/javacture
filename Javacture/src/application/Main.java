@@ -22,8 +22,8 @@ public class Main extends Application {
 		try {
 			//BorderPane root = new BorderPane();
 			VBox root = new VBox();
-			
-			Scene scene = new Scene(root,600,400);
+			primaryStage.setResizable(false);
+			Scene scene = new Scene(root,690,450);
 			root.getChildren().add(fxmlLoader.load());
 			
 			MainControl mc = fxmlLoader.getController();
