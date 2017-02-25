@@ -151,16 +151,6 @@ public class MainControl {
         }
 		return file;
 	}
-	/*
-	_ColorPicker.setOnAction(new EventHandler() {
-		public void handle(Event e) {
-			// TODO Auto-generated method stub
-			System.out.println("Couleur "+_ColorPicker.getValue());
-			//Color c = _ColorPicker.getValue();
-			//_VBoxCentral.styleProperty().setValue("");
-			//_VBoxCentral.setFill(_ColorPicker.getValue());
-		}
-    });*/
 	
 	public void click_change_color(ActionEvent e){
 		System.out.println(" test couleur");
