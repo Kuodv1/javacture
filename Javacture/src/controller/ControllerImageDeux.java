@@ -72,7 +72,7 @@ public class ControllerImageDeux {
 		uploadImage();
 	}
 	
-	public ContextMenu setMenu() {
+/*	public ContextMenu setMenu() {
 		ContextMenu ctxMenu = new ContextMenu();
 		MenuItem mniChargeImage = new MenuItem("Charger une image");
 		Menu menuChangeColor = new Menu("Changer la couleur de fond");
@@ -152,11 +152,11 @@ public class ControllerImageDeux {
 		
 		return ctxMenu;
 	}
-	
+	*/
 	public void onMouseClickRight(MouseEvent e) {
-		ContextMenu ctxMenu = setMenu();
+		/*ContextMenu ctxMenu = setMenu();
 		ctxMenu.setImpl_showRelativeToWindow(true);
-		ctxMenu.show(_imageView2Control,e.getScreenX(),e.getScreenY());
+		ctxMenu.show(_imageView2Control,e.getScreenX(),e.getScreenY());*/
 		
 		
 		Stage stage = new Stage();
@@ -173,7 +173,7 @@ public class ControllerImageDeux {
         
         ControllerEditableAgencement cea = fxmlLoader.getController();
         cea.setCadreImageToEdit(_cadreImage);
-        Scene scene = new Scene(root, 240, 200);
+        Scene scene = new Scene(root, 240, 340);
         stage.setScene(scene);
         stage.show();
 	}

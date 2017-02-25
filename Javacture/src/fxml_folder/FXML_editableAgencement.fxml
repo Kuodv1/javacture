@@ -5,27 +5,60 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerEditableAgencement">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerEditableAgencement">
    <children>
-      <VBox prefHeight="191.0" prefWidth="307.0">
+      <VBox prefHeight="389.0" prefWidth="239.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="138.0" text="Epaisseur de la bordure" />
-            <Slider fx:id="_sliderWidthBorder" max="10.0" />
-            <Label text="Type de bordure" />
+            <HBox prefHeight="25.0" prefWidth="239.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="138.0" text="Epaisseur de la bordure :" />
+                  <Label fx:id="_labelWidthBorder" alignment="CENTER" text="1" />
+               </children>
+            </HBox>
+            <Slider fx:id="_sliderWidthBorder" max="10.0" min="1.0" value="1.0" />
+            <Pane prefHeight="21.0" prefWidth="239.0" />
+            <HBox prefHeight="30.0" prefWidth="239.0">
+               <children>
+                  <Label text="Type de bordure : " />
+                  <Label fx:id="_labelTypeBorder" text="Plein" />
+               </children>
+            </HBox>
             <HBox prefHeight="35.0" prefWidth="239.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#click_plein_border" prefHeight="25.0" prefWidth="50.0" text="Plein" />
                   <Button mnemonicParsing="false" onAction="#click_point_border" text="Point" />
                   <Button mnemonicParsing="false" onAction="#click_dash_border" text="Trait" />
-                  <Button mnemonicParsing="false" onAction="#click_normal_border" text="Normal" />
-                  <Button mnemonicParsing="false" onAction="#click_round_border" text="Rond" />
                </children>
             </HBox>
-            <Label text="couleur de bordure" />
+            <HBox prefHeight="29.0" prefWidth="239.0">
+               <children>
+                  <Label text="Type de coin de la bordure : " />
+                  <Label fx:id="_labelCornerBorder" text="Carré" />
+               </children>
+            </HBox>
+            <Slider fx:id="_sliderCornerBorder" max="40.0" min="1.0" value="1.0" />
+            <Pane prefHeight="15.0" prefWidth="239.0" />
+            <HBox prefHeight="20.0" prefWidth="239.0">
+               <children>
+                  <Label text="Couleur de bordure : " />
+                  <Label fx:id="_labelColorBorder" text="Blanc" />
+                  <Pane prefHeight="20.0" prefWidth="24.0" />
+                  <Pane fx:id="_paneColorBorder" prefHeight="26.0" prefWidth="28.0" />
+               </children>
+            </HBox>
             <ColorPicker fx:id="_ColorPicker" onAction="#click_color" />
-            <Label text="Couleur de fond" />
+            <Pane prefHeight="25.0" prefWidth="239.0" />
+            <HBox prefHeight="12.0" prefWidth="239.0">
+               <children>
+                  <Label text="Couleur de fond : " />
+                  <Label fx:id="_labelBackgroundColor" text="Blanc" />
+                  <Pane prefHeight="17.0" prefWidth="24.0" />
+                  <Pane fx:id="_paneBackgroundColor" prefHeight="25.0" prefWidth="30.0" />
+               </children>
+            </HBox>
             <ColorPicker fx:id="_ColorFontPicker" onAction="#click_font_color" />
          </children>
       </VBox>

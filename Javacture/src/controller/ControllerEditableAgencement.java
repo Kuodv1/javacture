@@ -4,7 +4,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
 
@@ -33,6 +35,31 @@ public class ControllerEditableAgencement {
 	@FXML
 	private ColorPicker _ColorFontPicker;
 	
+	
+	@FXML
+	private Label _labelWidthBorder;
+	
+	@FXML
+	private Label _labelTypeBorder;
+	
+	@FXML
+	private Label _labelCornerBorder;
+	
+	@FXML
+	private Label _labelColorBorder;
+	
+	@FXML
+	private Pane _paneColorBorder;
+	
+	@FXML
+	private Pane _paneBackgroundColor;
+	
+	@FXML
+	private Label _labelBackgroundColor;
+	
+	@FXML
+	private Slider _sliderCornerBorder;
+	
 	/**
 	 * Parametre css pour gerer la couleur du fond
 	 */
@@ -49,7 +76,7 @@ public class ControllerEditableAgencement {
 	/**
 	 * Parametre locale qui permet de connaitre la couleur de bordure
 	 */
-	private String borderColor = "blue";
+	private String borderColor = "white";
 	
 	/**
 	 * Parametre css pour gerer le style de bordure (normal / point / trait)
@@ -97,6 +124,7 @@ public class ControllerEditableAgencement {
 	public void initialize() {
 		System.out.println("Initialisze ControllerEditableAgencement Check !");
 		initialize_slider_width_border();
+		initialize_slider_corner_border();
 	}
 	
 	/**
@@ -124,6 +152,8 @@ public class ControllerEditableAgencement {
 		if(startBorderRadius>=0)
 			borderRadius = reloadValue(style,stringBorderRadius,startBorderRadius);
 		
+		applyStyle();
+		
 	}
 	
 	/**
@@ -143,11 +173,7 @@ public class ControllerEditableAgencement {
 	 */
 	public void setCadreImageToEdit(Pane cadreImageToEdit) {
 		this.cadreImageToEdit = cadreImageToEdit;
-		
 		this.reloadParam(cadreImageToEdit.getStyle());
-		
-		System.out.println(cadreImageToEdit.getStyle());
-				
 	}
 	
 	/**
@@ -158,6 +184,15 @@ public class ControllerEditableAgencement {
             public void changed(ObservableValue<? extends Number> ov,
                 Number old_val, Number new_val) {
                     changeWidthBorder(new_val.intValue());
+            }
+        });
+	}
+	
+	public void initialize_slider_corner_border() {
+		_sliderCornerBorder.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                Number old_val, Number new_val) {
+                    setBorderRadius(new_val.intValue()+"");
             }
         });
 	}
@@ -180,6 +215,24 @@ public class ControllerEditableAgencement {
 				+ "-fx-border-width: "+widthBorder+";"
 				+  "-fx-border-style: "+borderStyle+"; "
 				+	"-fx-border-radius: "+borderRadius+";");
+		
+		refreshAffichage();
+	}
+	
+	public void refreshAffichage() {
+		this._labelColorBorder.setText(borderColor);
+		this._paneColorBorder.styleProperty().setValue("-fx-background-color: "+borderColor);
+		
+		this._labelBackgroundColor.setText(fontColor);
+		this._paneBackgroundColor.styleProperty().setValue("-fx-background-color: "+fontColor);
+		
+		
+        _labelWidthBorder.setText(widthBorder);
+        _sliderWidthBorder.setValue(Integer.parseInt(widthBorder));
+        
+        
+        _labelCornerBorder.setText(borderRadius);
+        _sliderCornerBorder.setValue(Integer.parseInt(borderRadius));
 	}
 	
 	/**
@@ -206,6 +259,7 @@ public class ControllerEditableAgencement {
 	 */
 	public void click_point_border(ActionEvent e){
 		setBorderStyle("dotted");
+		this._labelTypeBorder.setText("Point");
 	}
 	
 	/**
@@ -214,6 +268,7 @@ public class ControllerEditableAgencement {
 	 */
 	public void click_dash_border(ActionEvent e){
 		setBorderStyle("dashed");
+		this._labelTypeBorder.setText("Trait");
 	}
 	
 	/**
@@ -222,22 +277,7 @@ public class ControllerEditableAgencement {
 	 */
 	public void click_plein_border(ActionEvent e){
 		setBorderStyle("solid");
-	}
-	
-	/**
-	 * Change les coins de bordure en arrondi
-	 * @param e
-	 */
-	public void click_round_border(ActionEvent e){
-		setBorderRadius("12");
-	}
-	
-	/**
-	 * Change les coins de bordure en normal
-	 * @param e
-	 */
-	public void click_normal_border(ActionEvent e){
-		setBorderRadius("1");
+		this._labelTypeBorder.setText("Classique");
 	}
 	
 	/**
