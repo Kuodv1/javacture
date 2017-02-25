@@ -161,6 +161,7 @@ public class ControllerImageDeux {
 		
 		Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setTitle("Parametres Cadre"); 
     	URL fxmlURL = getClass().getResource("/fxml_folder/FXML_editableAgencement.fxml");//Vue contenant les 3 agencements
     	FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
     	VBox root = new VBox();

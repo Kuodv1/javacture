@@ -37,6 +37,7 @@ public class Main extends Application {
 			//BorderPane root = new BorderPane();
 			VBox root = new VBox();
 			primaryStage.setResizable(false);
+			primaryStage.setTitle("Application JavaFX"); 
 			Scene scene = new Scene(root,690,450);
 			root.getChildren().add(fxmlLoader.load());
 			

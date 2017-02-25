@@ -29,6 +29,7 @@
                       <MenuItem mnemonicParsing="false" onAction="#click_agencement_un" text="Agencement 1" />
                         <MenuItem mnemonicParsing="false" onAction="#click_agencement_deux" text="Agencement 2" />
                         <MenuItem mnemonicParsing="false" onAction="#click_agencement_trois" text="Agencement 3" />
+                        <MenuItem mnemonicParsing="false" onAction="#click_agencement_quatre" text="Agencement 4" />
                     </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" onAction="#click_change_color" text="Changer Couleurs" />
