@@ -10,12 +10,26 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
-
+/**
+ * 
+ * @author Goketsu et Kuod
+ * La classe qui gere la fenetre principale de l'application
+ *
+ */
 public class Main extends Application {
 	
+	/**
+	 * URL qui fait reference a un fichier fxml pour les composants graphiques
+	 */
 	final URL fxmlURL = getClass().getResource("/fxml_folder/FXML_main.fxml");//Vue contenant les 3 agencements
+	/**
+	 * Charge une hierarchie d'objets depuis l'url
+	 */
 	final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
 	
+	/**
+	 * Methode appelee apres la methode init et qui permet de demarrer l'application
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		
@@ -39,7 +53,12 @@ public class Main extends Application {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param args
+	 */
+	/*
 	public static void main(String[] args) {
 		launch(args);
-	}
+	}*/
 }

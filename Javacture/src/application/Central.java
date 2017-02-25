@@ -5,6 +5,11 @@ import java.net.URL;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
+/**
+ * 
+ * @author Goketsu et Kuod
+ *
+ */
 public class Central {
 
 	@FXML
