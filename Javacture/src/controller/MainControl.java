@@ -39,9 +39,8 @@ public class MainControl {
 	public Scene scene;
 	
 	final URL fxmlURLAgencementUn = getClass().getResource("/fxml_folder/FXML_central_agencement_un.fxml");//Vue contenant les 3 agencements
-	final URL fxmlURLAgencementDeux = getClass().getResource("/fxml_folder/FXML_central_agencement_deux.fxml");//Vue contenant les 3 agencements
+	final URL fxmlURLAgencementDeux = getClass().getResource("/fxml_folder/FXML_central_agencement_quatre.fxml");//Vue contenant les 3 agencements
 	final URL fxmlURLAgencementTrois = getClass().getResource("/fxml_folder/FXML_central_agencement_trois.fxml");//Vue contenant les 3 agencements
-	final URL fxmlURLAgencementQuatre = getClass().getResource("/fxml_folder/FXML_central_agencement_quatre.fxml");//Vue contenant les 3 agencements
 	
 	public void initialize() {
 		if(_VBoxCentral==null)
@@ -82,12 +81,6 @@ public class MainControl {
 		System.out.println("Choix agencement trois");
 		//central.choixAgencementDeux();
 		loaderFXML(fxmlURLAgencementTrois);
-	}
-	
-	public void click_agencement_quatre(ActionEvent e) {
-		System.out.println("Choix agencement quatre");
-		//central.choixAgencementDeux();
-		loaderFXML(fxmlURLAgencementQuatre);
 	}
 	
 	public void save_image(BufferedImage bImage, String type, File path) {
