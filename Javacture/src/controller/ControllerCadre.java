@@ -30,21 +30,50 @@ import javafx.scene.shape.StrokeType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ControllerImageDeux {
+/**
+ * Classe qui permet de gerer un cadre
+ * @author Goketsu et Kuod
+ *
+ */
+public class ControllerCadre {
 	
+	/**
+	 * Le cadre qui contient l'image
+	 */
 	@FXML
 	private Pane _cadreImage;
 	
+	/**
+	 * Un rectangle, emplacement de la futur image
+	 */
 	private Rectangle ra;
 	
+	/**
+	 * Les parametre du cadre
+	 */
 	private CadreValues rectangleValues;
 	
+	/**
+	 * La couleur de fond du cadre
+	 */
 	private String fontColor = "white";
+	/**
+	 * La couleur de bordure du cadre
+	 */
 	private String borderColor = "white";
+	/**
+	 * L'epaisseur de bordure du cadre
+	 */
 	private String widthBorder = "1";
 	
-	public ControllerImageDeux() {}
+	/**
+	 * Un constructeur vide
+	 */
+	public ControllerCadre() {}
 	
+	/**
+	 * Initialise les composants pour le cadre
+	 */
 	public void initialize() {
 		ra = new Rectangle(_cadreImage.getPrefWidth(),_cadreImage.getPrefHeight(),Color.ORANGE);
 		rectangleValues = new CadreValues(ra);
@@ -58,6 +87,10 @@ public class ControllerImageDeux {
 		_cadreImage.getChildren().add(ra);
 	}
 	
+	/**
+	 * Gere l'evenement d'un clic souris
+	 * @param e
+	 */
 	@FXML
 	public void onMouseClick(MouseEvent e) {
 		System.out.println("Test click ?");
@@ -70,6 +103,10 @@ public class ControllerImageDeux {
 
 	}
 	
+	/**
+	 * ...
+	 * @param e
+	 */
 	@FXML
 	public void onMouseClickAnchorPane(MouseEvent e) {
 		if(e.getButton()==MouseButton.SECONDARY)
@@ -78,14 +115,28 @@ public class ControllerImageDeux {
 			System.out.println("Aucune correspondance trouvé");
 	}
 	
+	/**
+	 * ...
+	 * @param e
+	 */
 	public void onMouseClickRightAnchorPane(MouseEvent e) {
 		System.out.println("Click droit sur le panel");
 	}
 	
+	/**
+	 * Gere un clic gauche de la souris pour faire apparaitre une nouvelle fenetre pour
+	 * charger une nouvelle image
+	 * @param e
+	 */
 	public void onMouseClickLeft(MouseEvent e) {
 		uploadImage();
 	}
 	
+	/**
+	 * Gere un clic droit de la souris pour faire apparaitre une nouvelle fenetre pour modifier 
+	 * les parametre du cadre
+	 * @param e
+	 */
 	public void onMouseClickRight(MouseEvent e) {
 		
 		
@@ -109,6 +160,9 @@ public class ControllerImageDeux {
         stage.show();
 	}
 	
+	/**
+	 * Charge une nouvelle image
+	 */
 	public void uploadImage(){
 		FileFilter imagesFilter = new FileNameExtensionFilter("Images (*.jpg, *.jpeg, *.png)","jpg", "jpeg", "png");
 		JFileChooser dialogue = new JFileChooser(new File("."));
@@ -126,18 +180,30 @@ public class ControllerImageDeux {
 		}	
 	}
 	
+	/**
+	 * Modifie la couleur du fond
+	 * @param color
+	 */
 	public void changeColor(String color){
 		fontColor = color;
 		_cadreImage.styleProperty().setValue("-fx-background-color: "+color+"; -fx-border-color: "+borderColor+";"
 				+ "-fx-border-width: "+widthBorder+"");
 	}
 	
+	/**
+	 * Modifie la couleur de la bordure
+	 * @param color
+	 */
 	public void changeColorBorder(String color){
 		borderColor = color;
 		_cadreImage.styleProperty().setValue("-fx-background-color: "+fontColor+"; -fx-border-color: "+color+";"
 				+ "-fx-border-width: "+widthBorder+"");
 	}
 	
+	/**
+	 * Modifie l'epaisseur de la bordure
+	 * @param width
+	 */
 	public void changeWidthBorder(String width){
 		widthBorder = width;
 		_cadreImage.styleProperty().setValue("-fx-background-color: "+fontColor+"; -fx-border-color: "+borderColor+";"

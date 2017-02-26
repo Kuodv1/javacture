@@ -20,6 +20,9 @@ import javafx.scene.paint.Color;
  */
 public class ControllerEditableAgencement {
 	
+	/**
+	 * Les parametres du cadre
+	 */
 	private CadreValues rectangleValues;
 	
 	/**
@@ -33,31 +36,45 @@ public class ControllerEditableAgencement {
 	@FXML
 	private ColorPicker _ColorFontPicker;
 	
-	
+	/**
+	 * Un label pour la largeur de la bordure
+	 */
 	@FXML
 	private Label _labelWidthBorder;
 	
+	/**
+	 * Un label pour le type de bordure
+	 */
 	@FXML
 	private Label _labelTypeBorder;
 	
+	/**
+	 * Un label pour type de coin
+	 */
 	@FXML
 	private Label _labelCornerBorder;
 	
+	/**
+	 * Un label pour la couleur de la bordure
+	 */
 	@FXML
 	private Label _labelColorBorder;
 	
-	@FXML
-	private Pane _paneColorBorder;
-	
-	@FXML
-	private Pane _paneBackgroundColor;
-	
+	/**
+	 * Un label pour la couleur de fond
+	 */
 	@FXML
 	private Label _labelBackgroundColor;
 	
+	/**
+	 * Un curseur pour l'arrondi de la bordure
+	 */
 	@FXML
 	private Slider _sliderCornerBorder;
 
+	/**
+	 * Un curseur pour l'epaisseur de la bordure
+	 */
 	@FXML
 	Slider _sliderWidthBorder;
 	
@@ -89,6 +106,10 @@ public class ControllerEditableAgencement {
 		return style.substring(valueOccurence+stringType.length(), style.indexOf(';',valueOccurence));
 	}
 	
+	/**
+	 * Modifie les parametres du rectangle
+	 * @param rectangleValues
+	 */
 	public void setRectangleToEdit(CadreValues rectangleValues) {
 		this.rectangleValues = rectangleValues;
 		this.refreshAffichage();
@@ -106,6 +127,9 @@ public class ControllerEditableAgencement {
         });
 	}
 	
+	/**
+	 * Initialise le curseur pour les coins de la bordure
+	 */
 	public void initialize_slider_corner_border() {
 		_sliderCornerBorder.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
@@ -123,6 +147,9 @@ public class ControllerEditableAgencement {
 		rectangleValues.setWidthCadre(widthBorderInt);
 	}
 	
+	/**
+	 * Permet de rafraichir l'affichage
+	 */
 	public void refreshAffichage() {
 		this._labelColorBorder.setText(rectangleValues.getColorCadre().toString());
 		this._ColorBorderPicker.setValue(rectangleValues.getColorCadre());
@@ -146,7 +173,7 @@ public class ControllerEditableAgencement {
 	}
 	
 	/**
-	 * Change le style de bordure en point
+	 * Modifie le style de bordure en point
 	 * @param e
 	 */
 	public void click_point_border(ActionEvent e){
@@ -155,7 +182,7 @@ public class ControllerEditableAgencement {
 	}
 	
 	/**
-	 * Change le style de borudure en normal
+	 * Modifie le style de borudure en normal
 	 * @param e
 	 */
 	public void click_plein_border(ActionEvent e){
@@ -164,7 +191,7 @@ public class ControllerEditableAgencement {
 	}
 	
 	/**
-	 * Change la couleur de bordure en fonction du color picker
+	 * Modifie la couleur de bordure en fonction du color picker
 	 * @param e
 	 */
 	public void click_border_color(ActionEvent e){

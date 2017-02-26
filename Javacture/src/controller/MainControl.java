@@ -29,19 +29,40 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Controlleur de la fenetre principale pour gerer les menus
+ * @author Goketsu et Kuod
+ *
+ */
 public class MainControl {
 	
+	/**
+	 * La boite centrale qui contient les cadres
+	 */
 	@FXML
 	public VBox _VBoxCentral;
-	@FXML
-	public ColorPicker _ColorPicker;
 	
+	/**
+	 * La scene principale
+	 */
 	public Scene scene;
 	
+	/**
+	 * La lien du premier agencement 
+	 */
 	final URL fxmlURLAgencementUn = getClass().getResource("/fxml_folder/FXML_central_agencement_un.fxml");//Vue contenant les 3 agencements
+	/**
+	 * Le lien du deuxieme agencement
+	 */
 	final URL fxmlURLAgencementDeux = getClass().getResource("/fxml_folder/FXML_central_agencement_quatre.fxml");//Vue contenant les 3 agencements
+	/**
+	 * Le lien du troisieme agencement
+	 */
 	final URL fxmlURLAgencementTrois = getClass().getResource("/fxml_folder/FXML_central_agencement_trois.fxml");//Vue contenant les 3 agencements
 	
+	/**
+	 * Initialise la fenetre principale avec le premier agencement
+	 */
 	public void initialize() {
 		if(_VBoxCentral==null)
 			System.out.println("_VBoxCentral=null");
@@ -49,10 +70,18 @@ public class MainControl {
 		loaderFXML(fxmlURLAgencementUn);
 	}
 	
+	/**
+	 * Initialise la scene
+	 * @param scene
+	 */
 	public void init_scene(Scene scene) {
 		this.scene = scene;
 	}
 	
+	/**
+	 * Charge un agencement en fonction de son lien
+	 * @param fxmlURL
+	 */
 	public void loaderFXML(URL fxmlURL) {
 		this._VBoxCentral.getChildren().clear();
 		FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
@@ -64,25 +93,43 @@ public class MainControl {
 		}
 	}
 	
-	
+	/**
+	 * Gere un clic sur le sous-menu agencement 1
+	 * @param e
+	 */
 	public void click_agencement_un(ActionEvent e) {
 		System.out.println("Choix agencement un");
 		//central.choixAgencementUn();
 		loaderFXML(fxmlURLAgencementUn);
 	}
 	
+	/**
+	 * Gere un clic sur le sous-menu agencement 2
+	 * @param e
+	 */
 	public void click_agencement_deux(ActionEvent e) {
 		System.out.println("Choix agencement deux");
 		//central.choixAgencementDeux();
 		loaderFXML(fxmlURLAgencementDeux);
 	}
+
 	
+	/**
+	 * Gere un clic sur le sous-menu agencement 3
+	 * @param e
+	 */
 	public void click_agencement_trois(ActionEvent e) {
 		System.out.println("Choix agencement trois");
 		//central.choixAgencementDeux();
 		loaderFXML(fxmlURLAgencementTrois);
 	}
 	
+	/**
+	 * Sauvegarde l'image
+	 * @param bImage
+	 * @param type
+	 * @param path
+	 */
 	public void save_image(BufferedImage bImage, String type, File path) {
 
 		try {
@@ -99,6 +146,10 @@ public class MainControl {
 		}
 	}
 	
+	/**
+	 * Gere un clicsur le sous-menu pour exporter l'image en jpeg
+	 * @param e
+	 */
 	public void click_export_jpeg(ActionEvent e) {
 		System.out.println("Export jpeg !");
 		String type = "jpeg";
@@ -111,7 +162,12 @@ public class MainControl {
 			save_image(bImage2,type,path);
 		}
 	}
+
 	
+	/**
+	 * Gere un clicsur le sous-menu pour exporter l'image en bmp
+	 * @param e
+	 */
 	public void click_export_bmp(ActionEvent e) {
 		System.out.println("Export bmp !");
 		String type = "bmp";
@@ -125,6 +181,11 @@ public class MainControl {
 		}
 	}
 
+	
+	/**
+	 * Gere un clicsur le sous-menu pour exporter l'image en png
+	 * @param e
+	 */
 	public void click_export_png(ActionEvent e) {
 		System.out.println("Export png !");
 		String type = "png";
@@ -136,7 +197,11 @@ public class MainControl {
 		}
 	}
 	
-	
+	/**
+	 * Recupere l'image que l'on veut inclure
+	 * @param type
+	 * @return
+	 */
 	public File getFileChooser(String type) {
 		JFileChooser fc = new JFileChooser();
 		FileFilter imagesFilter = new FileNameExtensionFilter("Images (*."+type+")",type);
@@ -151,6 +216,10 @@ public class MainControl {
 		return file;
 	}
 	
+	/**
+	 * Gere le changement de couleur de fond via le sous-menu approprié
+	 * @param e
+	 */
 	public void click_change_color(ActionEvent e){
 		System.out.println(" test couleur");
 		Stage stage = new Stage();
@@ -172,6 +241,10 @@ public class MainControl {
         stage.show();
 	}
 	
+	/**
+	 * Gere le clic sur le sous-menu close
+	 * @param e
+	 */
 	public void click_close(ActionEvent e) {
 		System.exit(0);
 	}
