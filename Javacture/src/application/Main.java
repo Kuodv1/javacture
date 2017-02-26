@@ -40,10 +40,9 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 		try {
-			//BorderPane root = new BorderPane();
 			VBox root = new VBox();
 			primaryStage.setResizable(false);
-			Scene scene = new Scene(root,690,450);
+			Scene scene = new Scene(root,700,550);
 			root.getChildren().add(fxmlLoader.load());
 			
 			MainControl mc = fxmlLoader.getController();
@@ -51,6 +50,7 @@ public class Main extends Application {
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Frame Not Magic");
 			primaryStage.show();
 			
 		} catch(Exception e) {

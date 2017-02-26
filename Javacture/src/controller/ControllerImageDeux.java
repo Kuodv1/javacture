@@ -39,10 +39,6 @@ public class ControllerImageDeux {
 	
 	private CadreValues rectangleValues;
 	
-	private String fontColor = "white";
-	private String borderColor = "white";
-	private String widthBorder = "1";
-	
 	public ControllerImageDeux() {}
 	
 	public void initialize() {
@@ -124,23 +120,5 @@ public class ControllerImageDeux {
 			Image imageTmp = new Image("file:///"+fichier.getPath()); 
 			ra.setFill(new ImagePattern(imageTmp));
 		}	
-	}
-	
-	public void changeColor(String color){
-		fontColor = color;
-		_cadreImage.styleProperty().setValue("-fx-background-color: "+color+"; -fx-border-color: "+borderColor+";"
-				+ "-fx-border-width: "+widthBorder+"");
-	}
-	
-	public void changeColorBorder(String color){
-		borderColor = color;
-		_cadreImage.styleProperty().setValue("-fx-background-color: "+fontColor+"; -fx-border-color: "+color+";"
-				+ "-fx-border-width: "+widthBorder+"");
-	}
-	
-	public void changeWidthBorder(String width){
-		widthBorder = width;
-		_cadreImage.styleProperty().setValue("-fx-background-color: "+fontColor+"; -fx-border-color: "+borderColor+";"
-				+ "-fx-border-width: "+width+"");
 	}
 }
