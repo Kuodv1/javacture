@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerEditableAgencement">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerEditableAgencement">
    <children>
-      <VBox prefHeight="389.0" prefWidth="239.0">
+      <VBox prefHeight="240.0" prefWidth="239.0">
          <children>
             <HBox prefHeight="25.0" prefWidth="239.0">
                <children>
@@ -48,17 +48,8 @@
                   <Pane fx:id="_paneColorBorder" prefHeight="26.0" prefWidth="28.0" />
                </children>
             </HBox>
-            <ColorPicker fx:id="_ColorPicker" onAction="#click_color" />
+            <ColorPicker fx:id="_ColorBorderPicker" onAction="#click_border_color" />
             <Pane prefHeight="25.0" prefWidth="239.0" />
-            <HBox prefHeight="12.0" prefWidth="239.0">
-               <children>
-                  <Label text="Couleur de fond : " />
-                  <Label fx:id="_labelBackgroundColor" text="Blanc" />
-                  <Pane prefHeight="17.0" prefWidth="24.0" />
-                  <Pane fx:id="_paneBackgroundColor" prefHeight="25.0" prefWidth="30.0" />
-               </children>
-            </HBox>
-            <ColorPicker fx:id="_ColorFontPicker" onAction="#click_font_color" />
          </children>
       </VBox>
    </children>

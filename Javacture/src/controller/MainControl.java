@@ -43,7 +43,6 @@ public class MainControl {
 	final URL fxmlURLAgencementTrois = getClass().getResource("/fxml_folder/FXML_central_agencement_trois.fxml");//Vue contenant les 3 agencements
 	
 	public void initialize() {
-		System.out.println("MainControl : init test ?");
 		if(_VBoxCentral==null)
 			System.out.println("_VBoxCentral=null");
 		
@@ -173,10 +172,7 @@ public class MainControl {
         stage.show();
 	}
 	
-	/*
-	_ColorPicker.setOnAction(new EventHandler() {
-        public void handle(Event t) {
-            text.setFill(colorPicker.getValue());               
-        }
-    });*/
+	public void click_close(ActionEvent e) {
+		System.exit(0);
+	}
 }

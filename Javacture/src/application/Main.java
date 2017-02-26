@@ -48,21 +48,6 @@ public class Main extends Application {
 			
 			MainControl mc = fxmlLoader.getController();
 			mc.init_scene(scene);
-			/*
-			//Debut modif
-			Rectangle ra = new Rectangle(100,50,Color.ORANGE);
-			ra.setX(50);
-			ra.setY(80);
-			ra.setArcWidth(30);
-			ra.setArcHeight(50);
-			ra.setStroke(Color.DEEPSKYBLUE);
-			ra.setStrokeWidth(6);
-			ra.setStrokeType(StrokeType.OUTSIDE);
-			Image img = new Image("/application/ressource/test.png");
-			ra.setFill(new ImagePattern(img,50,80,100,100,false));
-			
-			root.getChildren().add(ra);*/
-			//fin modif
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);

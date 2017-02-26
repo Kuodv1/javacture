@@ -7,11 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 /**
  * 
@@ -21,11 +19,6 @@ import javafx.scene.shape.Rectangle;
  *
  */
 public class ControllerEditableAgencement {
-
-	/**
-	 * Le cadre de l'image que l'on veut modifier
-	 */
-	private Pane cadreImageToEdit;
 	
 	private CadreValues rectangleValues;
 	
@@ -33,7 +26,7 @@ public class ControllerEditableAgencement {
 	 * Un color picker pour modifier la couleur de bordure
 	 */
 	@FXML
-	private ColorPicker _ColorPicker;
+	private ColorPicker _ColorBorderPicker;
 	/**
 	 * Un color picker pour modifer la couleur du fond
 	 */
@@ -64,57 +57,10 @@ public class ControllerEditableAgencement {
 	
 	@FXML
 	private Slider _sliderCornerBorder;
-	
-	/**
-	 * Parametre css pour gerer la couleur du fond
-	 */
-	private final String stringBackgroundColor =  "-fx-background-color: ";
-	/**
-	 * Parametre locale qui permet de connaitre la couleur du fond
-	 */
-	private String fontColor = "white";
-	
-	/**
-	 * Parametre css pour gerer la couleur de bordure
-	 */
-	private final String stringBorderColor = "-fx-border-color: ";
-	/**
-	 * Parametre locale qui permet de connaitre la couleur de bordure
-	 */
-	private String borderColor = "white";
-	
-	/**
-	 * Parametre css pour gerer le style de bordure (normal / point / trait)
-	 */
-	private final String stringBorderStyle = "-fx-border-style: ";
-	/**
-	 * Parametre locale qui permet de connaitre le style de bordure
-	 */
-	private String borderStyle = "solid";
 
-	/**
-	 * Parametre css pour gerer le style de bordure (rond / normal)
-	 */
-	private final String stringBorderRadius = "-fx-border-radius: ";
-	/**
-	 * Parametre locale qui permet de connaitre le style de bordure
-	 */
-	private String borderRadius = "1";	
-	
-	/**
-	 * Curseur pour gerer l'epaisseur de la bordure
-	 */
 	@FXML
 	Slider _sliderWidthBorder;
 	
-	/**
-	 * Parametre css pour gerer l'epaisseur de bordure
-	 */
-	private final String stringBorderWidth = "-fx-border-width: ";
-	/**
-	 * Parametre locale qui permet de connaitre l'epaisseur de bordure
-	 */
-	private String widthBorder = "1";
 	
 	/**
 	 * Constructeur vide
@@ -133,35 +79,6 @@ public class ControllerEditableAgencement {
 	}
 	
 	/**
-	 * Fonction qui permet de recuperer le style css actuel du cadre
-	 * @param style : la chaine de caractere qui contient le code css
-	 */
-	/*public void reloadParam(String style) {
-		int startBackgroundColor = style.indexOf(stringBackgroundColor); 
-		if(startBackgroundColor>=0)
-			fontColor = reloadValue(style,stringBackgroundColor,startBackgroundColor);
-		
-		int startBorderColor = style.indexOf(stringBorderColor);
-		if(startBorderColor>=0)
-			borderColor = reloadValue(style,stringBorderColor,startBorderColor);
-		
-		int startBorderWidth = style.indexOf(stringBorderWidth);
-		if(startBorderWidth>=0)
-			widthBorder = reloadValue(style,stringBorderWidth,startBorderWidth);
-		
-		int startBorderStyle = style.indexOf(stringBorderStyle);
-		if(startBorderStyle>=0) 
-			borderStyle = reloadValue(style,stringBorderStyle,startBorderStyle);
-		
-		int startBorderRadius = style.indexOf(stringBorderRadius);
-		if(startBorderRadius>=0)
-			borderRadius = reloadValue(style,stringBorderRadius,startBorderRadius);
-		
-		applyStyle();
-		
-	}*/
-	
-	/**
 	 * Fonction pour decouper la chaine de caractere en parametres
 	 * @param style : la chaine de caractere qui contient le code css
 	 * @param stringType
@@ -171,14 +88,6 @@ public class ControllerEditableAgencement {
 	public String reloadValue(String style, String stringType, int valueOccurence) {
 		return style.substring(valueOccurence+stringType.length(), style.indexOf(';',valueOccurence));
 	}
-	
-	/**
-	 * Initialise le cadre de l'image
-	 * @param cadreImageToEdit
-	 */
-	/*public void setCadreImageToEdit(Pane cadreImageToEdit) {
-		this.cadreImageToEdit = cadreImageToEdit;
-	}*/
 	
 	public void setRectangleToEdit(CadreValues rectangleValues) {
 		this.rectangleValues = rectangleValues;
@@ -211,28 +120,12 @@ public class ControllerEditableAgencement {
 	 * @param widthBorderInt : epaisseur de la bordure
 	 */
 	public void changeWidthBorder(int widthBorderInt){
-		this.widthBorder = ""+widthBorderInt;
 		rectangleValues.setWidthCadre(widthBorderInt);
 	}
 	
-	/**
-	 * Applique les proprietes du cadre au css
-	 */
-	/*public void applyStyle() {
-		cadreImageToEdit.styleProperty().setValue("-fx-background-color: "+fontColor+";"+
-				" -fx-border-color: "+borderColor+";"
-				+ "-fx-border-width: "+widthBorder+";"
-				+  "-fx-border-style: "+borderStyle+"; "
-				+	"-fx-border-radius: "+borderRadius+";");
-		
-		refreshAffichage();
-	}*/
-	
 	public void refreshAffichage() {
 		this._labelColorBorder.setText(rectangleValues.getColorCadre().toString());
-		
-		this._labelBackgroundColor.setText(fontColor);
-		this._paneBackgroundColor.styleProperty().setValue("-fx-background-color: "+fontColor);
+		this._ColorBorderPicker.setValue(rectangleValues.getColorCadre());
 		
 		_labelTypeBorder.setText(rectangleValues.getStyleCadre());
 		
@@ -274,19 +167,9 @@ public class ControllerEditableAgencement {
 	 * Change la couleur de bordure en fonction du color picker
 	 * @param e
 	 */
-	public void click_color(ActionEvent e){
-		borderColor = "#"+_ColorPicker.getValue().toString().substring(2);
-		System.out.println("couleur : "+borderColor);
-		Color c = _ColorPicker.getValue();
+	public void click_border_color(ActionEvent e){
+		Color c = _ColorBorderPicker.getValue();
 		rectangleValues.setCoulorCadre(c);
-	}
-	
-	/**
-	 * Change la couleur de fond en fonction du color picker
-	 * @param e
-	 */
-	public void click_font_color(ActionEvent e){
-		fontColor = "#"+_ColorFontPicker.getValue().toString().substring(2);
-		System.out.println("couleur : "+fontColor);
+		refreshAffichage();
 	}
 }

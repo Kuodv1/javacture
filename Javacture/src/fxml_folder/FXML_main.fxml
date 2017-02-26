@@ -9,21 +9,20 @@
    <children>
       <MenuBar>
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Fichier">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-                  <Menu mnemonicParsing="false" text="Exporter...">
+                  <Menu mnemonicParsing="false" text="Enregistrer au format...">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#click_export_bmp" text="bmp" />
                         <MenuItem mnemonicParsing="false" onAction="#click_export_jpeg" text="jpeg" />
                         <MenuItem mnemonicParsing="false" onAction="#click_export_png" text="png" />
                     </items>
                   </Menu>
+              <MenuItem mnemonicParsing="false" onAction="#click_close" text="Quitter" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Edition">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
                   <Menu mnemonicParsing="false" text="Choix Agencement">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#click_agencement_un" text="Agencement 1" />
@@ -31,12 +30,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#click_agencement_trois" text="Agencement 3" />
                     </items>
                   </Menu>
-                  <MenuItem mnemonicParsing="false" onAction="#click_change_color" text="Changer Couleurs" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#click_change_color" text="Changer Couleur de fond" />
             </items>
           </Menu>
         </menus>
