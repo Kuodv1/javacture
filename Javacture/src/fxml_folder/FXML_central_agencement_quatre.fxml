@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox>
+         <children>
+            
+                        <BorderPane cacheShape="false" centerShape="false" prefHeight="230.0" prefWidth="460.0">
+               <center>
+               	<fx:include fx:id="cadreDeux" source="FXML_agencement.fxml" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="234.0" prefWidth="250.0">
+               <center>
+               	<fx:include fx:id="cadreUn" source="FXML_agencement.fxml" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            
+                        <BorderPane prefHeight="202.0" prefWidth="250.0">
+               <center>
+               	<fx:include fx:id="cadreTrois" source="FXML_agencement.fxml" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="225.0" prefWidth="460.0">
+               <center>
+                  <fx:include fx:id="cadreQuatre" source="FXML_agencement.fxml" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>
