@@ -5,7 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="500.0" maxWidth="700.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainControl">
+<VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainControl">
    <children>
       <MenuBar>
         <menus>
@@ -36,6 +36,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <VBox fx:id="_VBoxCentral" alignment="TOP_CENTER" />
+      <VBox fx:id="_VBoxCentral" alignment="BOTTOM_CENTER" maxWidth="-Infinity" prefWidth="690.0" scaleShape="false" />
    </children>
 </VBox>

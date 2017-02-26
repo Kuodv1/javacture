@@ -43,7 +43,7 @@ public class Main extends Application {
 			//BorderPane root = new BorderPane();
 			VBox root = new VBox();
 			primaryStage.setResizable(false);
-			Scene scene = new Scene(root,690,450);
+			Scene scene = new Scene(root,690,475);
 			root.getChildren().add(fxmlLoader.load());
 			
 			MainControl mc = fxmlLoader.getController();

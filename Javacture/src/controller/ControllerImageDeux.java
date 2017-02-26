@@ -46,10 +46,10 @@ public class ControllerImageDeux {
 	public ControllerImageDeux() {}
 	
 	public void initialize() {
-		ra = new Rectangle(100,50,Color.ORANGE);
+		ra = new Rectangle(250,150,Color.ORANGE);
 		rectangleValues = new CadreValues(ra);
-		ra.setX(50);
-		ra.setY(80);
+		//ra.setX(5);
+		//ra.setY(5);
 
 		rectangleValues.setCoulorCadre(Color.BLACK);
 		rectangleValues.setWidthCadre(5);
