@@ -46,7 +46,7 @@ public class ControllerImageDeux {
 	public ControllerImageDeux() {}
 	
 	public void initialize() {
-		ra = new Rectangle(250,150,Color.ORANGE);
+		ra = new Rectangle(_cadreImage.getPrefWidth(),_cadreImage.getPrefHeight(),Color.ORANGE);
 		rectangleValues = new CadreValues(ra);
 		//ra.setX(5);
 		//ra.setY(5);
