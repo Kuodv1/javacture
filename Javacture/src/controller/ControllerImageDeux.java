@@ -8,7 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
+import application.CadreValues;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,17 +20,26 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ControllerImageDeux {
 
-	@FXML
-	private ImageView _imageView2Control;
+	//@FXML
+	//private ImageView _imageView2Control;
 	@FXML
 	private Pane _cadreImage;
+	
+	private Rectangle ra;
+	
+	private CadreValues rectangleValues;
 	
 	private String fontColor = "white";
 	private String borderColor = "white";
@@ -38,8 +47,28 @@ public class ControllerImageDeux {
 	
 	public ControllerImageDeux() {}
 	
+	public void initialize() {
+		ra = new Rectangle(100,50,Color.ORANGE);
+		rectangleValues = new CadreValues(ra);
+		ra.setX(50);
+		ra.setY(80);
+		
+		
+		
+		//rectangleValues.setRadiusCadre(40);
+		rectangleValues.setCoulorCadre(Color.BLACK);
+		rectangleValues.setWidthCadre(5);
+		//ra.setStrokeType(StrokeType.OUTSIDE);
+		
+		
+		Image img = new Image("/application/ressource/test.png");
+		rectangleValues.setImage(img);
+		
+		_cadreImage.getChildren().add(ra);
+	}
+	
 	@FXML
-	public void onMouseClickImageView(MouseEvent e) {
+	public void onMouseClick(MouseEvent e) {
 		System.out.println("Test click ?");
 		if(e.getButton()==MouseButton.PRIMARY)
 			onMouseClickLeft(e);
@@ -172,7 +201,7 @@ public class ControllerImageDeux {
 		}
         
         ControllerEditableAgencement cea = fxmlLoader.getController();
-        cea.setCadreImageToEdit(_cadreImage);
+        cea.setRectangleToEdit(rectangleValues);
         Scene scene = new Scene(root, 240, 340);
         stage.setScene(scene);
         stage.show();
@@ -191,7 +220,7 @@ public class ControllerImageDeux {
 		    fichier = dialogue.getSelectedFile();
 			System.out.println(fichier.getPath());
 			Image imageTmp = new Image("file:///"+fichier.getPath()); 
-			_imageView2Control.setImage(imageTmp);
+			ra.setFill(new ImagePattern(imageTmp,50,80,100,100,false));
 		}	
 	}
 	

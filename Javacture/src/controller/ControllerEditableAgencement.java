@@ -1,5 +1,6 @@
 package controller;
 
+import application.CadreValues;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  * 
@@ -23,6 +26,8 @@ public class ControllerEditableAgencement {
 	 * Le cadre de l'image que l'on veut modifier
 	 */
 	private Pane cadreImageToEdit;
+	
+	private CadreValues rectangleValues;
 	
 	/**
 	 * Un color picker pour modifier la couleur de bordure
@@ -131,7 +136,7 @@ public class ControllerEditableAgencement {
 	 * Fonction qui permet de recuperer le style css actuel du cadre
 	 * @param style : la chaine de caractere qui contient le code css
 	 */
-	public void reloadParam(String style) {
+	/*public void reloadParam(String style) {
 		int startBackgroundColor = style.indexOf(stringBackgroundColor); 
 		if(startBackgroundColor>=0)
 			fontColor = reloadValue(style,stringBackgroundColor,startBackgroundColor);
@@ -154,7 +159,7 @@ public class ControllerEditableAgencement {
 		
 		applyStyle();
 		
-	}
+	}*/
 	
 	/**
 	 * Fonction pour decouper la chaine de caractere en parametres
@@ -171,9 +176,13 @@ public class ControllerEditableAgencement {
 	 * Initialise le cadre de l'image
 	 * @param cadreImageToEdit
 	 */
-	public void setCadreImageToEdit(Pane cadreImageToEdit) {
+	/*public void setCadreImageToEdit(Pane cadreImageToEdit) {
 		this.cadreImageToEdit = cadreImageToEdit;
-		this.reloadParam(cadreImageToEdit.getStyle());
+	}*/
+	
+	public void setRectangleToEdit(CadreValues rectangleValues) {
+		this.rectangleValues = rectangleValues;
+		this.refreshAffichage();
 	}
 	
 	/**
@@ -192,7 +201,7 @@ public class ControllerEditableAgencement {
 		_sliderCornerBorder.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
                 Number old_val, Number new_val) {
-                    setBorderRadius(new_val.intValue()+"");
+                    setBorderRadius(new_val.intValue());
             }
         });
 	}
@@ -203,13 +212,13 @@ public class ControllerEditableAgencement {
 	 */
 	public void changeWidthBorder(int widthBorderInt){
 		this.widthBorder = ""+widthBorderInt;
-		applyStyle();
+		rectangleValues.setWidthCadre(widthBorderInt);
 	}
 	
 	/**
 	 * Applique les proprietes du cadre au css
 	 */
-	public void applyStyle() {
+	/*public void applyStyle() {
 		cadreImageToEdit.styleProperty().setValue("-fx-background-color: "+fontColor+";"+
 				" -fx-border-color: "+borderColor+";"
 				+ "-fx-border-width: "+widthBorder+";"
@@ -217,40 +226,30 @@ public class ControllerEditableAgencement {
 				+	"-fx-border-radius: "+borderRadius+";");
 		
 		refreshAffichage();
-	}
+	}*/
 	
 	public void refreshAffichage() {
-		this._labelColorBorder.setText(borderColor);
-		this._paneColorBorder.styleProperty().setValue("-fx-background-color: "+borderColor);
+		this._labelColorBorder.setText(rectangleValues.getColorCadre().toString());
 		
 		this._labelBackgroundColor.setText(fontColor);
 		this._paneBackgroundColor.styleProperty().setValue("-fx-background-color: "+fontColor);
 		
+		_labelTypeBorder.setText(rectangleValues.getStyleCadre());
 		
-        _labelWidthBorder.setText(widthBorder);
-        _sliderWidthBorder.setValue(Integer.parseInt(widthBorder));
+        _labelWidthBorder.setText(rectangleValues.getWidthCadre()+"");
+        _sliderWidthBorder.setValue(rectangleValues.getWidthCadre());
         
-        
-        _labelCornerBorder.setText(borderRadius);
-        _sliderCornerBorder.setValue(Integer.parseInt(borderRadius));
-	}
-	
-	/**
-	 * Permet de changer le style de bordure
-	 * @param border : style de bordure (solid/dotted/dashed)
-	 */
-	public void setBorderStyle(String border){
-		borderStyle = border;
-		applyStyle();
+        _labelCornerBorder.setText(rectangleValues.getRadiusCadre()+"");
+        _sliderCornerBorder.setValue(rectangleValues.getRadiusCadre());
 	}
 	
 	/**
 	 * Permet de modifier la courbe des coins du cadre
 	 * @param border : le degres de courbur du cadre
 	 */
-	public void setBorderRadius(String border){
-		borderRadius = border;
-		applyStyle();
+	public void setBorderRadius(int borderRadius){
+		this.rectangleValues.setRadiusCadre(borderRadius);
+		_labelCornerBorder.setText(rectangleValues.getRadiusCadre()+"");
 	}
 	
 	/**
@@ -258,17 +257,8 @@ public class ControllerEditableAgencement {
 	 * @param e
 	 */
 	public void click_point_border(ActionEvent e){
-		setBorderStyle("dotted");
-		this._labelTypeBorder.setText("Point");
-	}
-	
-	/**
-	 * Change le style de bordure en trait
-	 * @param e
-	 */
-	public void click_dash_border(ActionEvent e){
-		setBorderStyle("dashed");
-		this._labelTypeBorder.setText("Trait");
+		this.rectangleValues.setStyleCadrePointillé();
+		_labelTypeBorder.setText(rectangleValues.getStyleCadre());
 	}
 	
 	/**
@@ -276,8 +266,8 @@ public class ControllerEditableAgencement {
 	 * @param e
 	 */
 	public void click_plein_border(ActionEvent e){
-		setBorderStyle("solid");
-		this._labelTypeBorder.setText("Classique");
+		this.rectangleValues.setStyleCadrePlein();
+		_labelTypeBorder.setText(rectangleValues.getStyleCadre());
 	}
 	
 	/**
@@ -287,7 +277,8 @@ public class ControllerEditableAgencement {
 	public void click_color(ActionEvent e){
 		borderColor = "#"+_ColorPicker.getValue().toString().substring(2);
 		System.out.println("couleur : "+borderColor);
-		applyStyle();
+		Color c = _ColorPicker.getValue();
+		rectangleValues.setCoulorCadre(c);
 	}
 	
 	/**
@@ -297,6 +288,5 @@ public class ControllerEditableAgencement {
 	public void click_font_color(ActionEvent e){
 		fontColor = "#"+_ColorFontPicker.getValue().toString().substring(2);
 		System.out.println("couleur : "+fontColor);
-		applyStyle();
 	}
 }

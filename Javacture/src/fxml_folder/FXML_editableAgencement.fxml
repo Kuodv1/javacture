@@ -30,7 +30,6 @@
                <children>
                   <Button mnemonicParsing="false" onAction="#click_plein_border" prefHeight="25.0" prefWidth="50.0" text="Plein" />
                   <Button mnemonicParsing="false" onAction="#click_point_border" text="Point" />
-                  <Button mnemonicParsing="false" onAction="#click_dash_border" text="Trait" />
                </children>
             </HBox>
             <HBox prefHeight="29.0" prefWidth="239.0">

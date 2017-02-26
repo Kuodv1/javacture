@@ -40,15 +40,15 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 		try {
-			BorderPane root = new BorderPane();
-			//VBox root = new VBox();
+			//BorderPane root = new BorderPane();
+			VBox root = new VBox();
 			primaryStage.setResizable(false);
 			Scene scene = new Scene(root,690,450);
-			/*root.getChildren().add(fxmlLoader.load());
+			root.getChildren().add(fxmlLoader.load());
 			
 			MainControl mc = fxmlLoader.getController();
 			mc.init_scene(scene);
-			*/
+			/*
 			//Debut modif
 			Rectangle ra = new Rectangle(100,50,Color.ORANGE);
 			ra.setX(50);
@@ -61,7 +61,7 @@ public class Main extends Application {
 			Image img = new Image("/application/ressource/test.png");
 			ra.setFill(new ImagePattern(img,50,80,100,100,false));
 			
-			root.getChildren().add(ra);
+			root.getChildren().add(ra);*/
 			//fin modif
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
