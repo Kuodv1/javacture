@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -48,6 +49,24 @@ public class MainControl {
 	public Scene scene;
 	
 	/**
+	 * Le checkboc pour l'agencement 1
+	 */
+	@FXML
+	public CheckBox _checkA1;
+	
+	/**
+	 * Le checkboc pour l'agencement 2
+	 */
+	@FXML
+	public CheckBox _checkA2;
+	
+	/**
+	 * Le checkboc pour l'agencement 3
+	 */
+	@FXML
+	public CheckBox _checkA3;
+	
+	/**
 	 * La lien du premier agencement 
 	 */
 	final URL fxmlURLAgencementUn = getClass().getResource("/fxml_folder/FXML_central_agencement_un.fxml");//Vue contenant les 3 agencements
@@ -66,7 +85,8 @@ public class MainControl {
 	public void initialize() {
 		if(_VBoxCentral==null)
 			System.out.println("_VBoxCentral=null");
-		
+
+		_checkA1.setSelected(true);
 		loaderFXML(fxmlURLAgencementUn);
 	}
 	
@@ -98,8 +118,9 @@ public class MainControl {
 	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_agencement_un(ActionEvent e) {
-		System.out.println("Choix agencement un");
-		//central.choixAgencementUn();
+		_checkA1.setSelected(true);
+		_checkA2.setSelected(false);
+		_checkA3.setSelected(false);
 		loaderFXML(fxmlURLAgencementUn);
 	}
 	
@@ -108,8 +129,9 @@ public class MainControl {
 	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_agencement_deux(ActionEvent e) {
-		System.out.println("Choix agencement deux");
-		//central.choixAgencementDeux();
+		_checkA1.setSelected(false);
+		_checkA2.setSelected(true);
+		_checkA3.setSelected(false);
 		loaderFXML(fxmlURLAgencementDeux);
 	}
 
@@ -119,8 +141,9 @@ public class MainControl {
 	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_agencement_trois(ActionEvent e) {
-		System.out.println("Choix agencement trois");
-		//central.choixAgencementDeux();
+		_checkA1.setSelected(false);
+		_checkA2.setSelected(false);
+		_checkA3.setSelected(true);
 		loaderFXML(fxmlURLAgencementTrois);
 	}
 	
