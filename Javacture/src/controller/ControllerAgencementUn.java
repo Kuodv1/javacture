@@ -47,7 +47,7 @@ public class ControllerAgencementUn {
 		Pane bpCadreDeux = (Pane)cadreDeux;
 		Rectangle ra2 = new Rectangle(400,120,Color.ORANGE);
 		CadreValues rectangleValues2 = new CadreValues(ra2);
-		ra2.setX(120);
+		ra2.setX(10);
 		ra2.setY(10);
 		
 		createNode(bpCadreDeux,rectangleValues2);
@@ -55,7 +55,7 @@ public class ControllerAgencementUn {
 		Pane bpCadreTrois = (Pane)cadreTrois;		
 		Rectangle ra3 = new Rectangle(400,120,Color.ORANGE);
 		CadreValues rectangleValues3 = new CadreValues(ra3);
-		ra3.setX(240);
+		ra3.setX(10);
 		ra3.setY(10);
 
 		createNode(bpCadreTrois,rectangleValues3);

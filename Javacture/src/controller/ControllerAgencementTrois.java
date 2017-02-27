@@ -50,7 +50,7 @@ public class ControllerAgencementTrois {
 		Pane bpCadreDeux = (Pane)cadreDeux;
 		Rectangle ra2 = new Rectangle(100,200,Color.ORANGE);
 		CadreValues rectangleValues2 = new CadreValues(ra2);
-		ra2.setX(100);
+		ra2.setX(10);
 		ra2.setY(10);
 		
 		createNode(bpCadreDeux,rectangleValues2);

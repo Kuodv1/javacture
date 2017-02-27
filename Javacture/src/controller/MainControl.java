@@ -67,7 +67,7 @@ public class MainControl {
 		if(_VBoxCentral==null)
 			System.out.println("_VBoxCentral=null");
 		
-		loaderFXML(fxmlURLAgencementUn);
+		loaderFXML(fxmlURLAgencementTrois);
 	}
 	
 	/**

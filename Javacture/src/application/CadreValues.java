@@ -119,8 +119,8 @@ public class CadreValues {
 	 */
 	public void setRadiusCadre(int radiusCadre) {
 		this.radiusCadre = radiusCadre;
-		this.rectangleToEdit.setArcWidth(radiusCadre);
-		this.rectangleToEdit.setArcHeight(radiusCadre);
+		this.rectangleToEdit.setArcWidth((radiusCadre*0.01)*rectangleToEdit.getWidth());
+		this.rectangleToEdit.setArcHeight((radiusCadre*0.01)*rectangleToEdit.getHeight());
 	}
 	
 	/**
@@ -145,7 +145,7 @@ public class CadreValues {
 	 */
 	public void setImage(Image img) {
 		this.img = img;
-		rectangleToEdit.setFill(new ImagePattern(img,50,80,100,100,false));
+		rectangleToEdit.setFill(new ImagePattern(img));
 	}
 	
 	/**

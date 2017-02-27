@@ -2,38 +2,31 @@
 
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerAgencementTrois">
    <children>
-      <HBox>
-         <children>
-			<BorderPane cacheShape="false" centerShape="false" prefHeight="230.0" prefWidth="460.0">
-				<center>
-					<Pane fx:id="cadreUn" BorderPane.alignment="CENTER" />
-				</center>
-            </BorderPane>
-            <BorderPane prefHeight="234.0" prefWidth="250.0">
-				<center>
-					<Pane fx:id="cadreDeux" BorderPane.alignment="CENTER" />
-				</center>
-            </BorderPane>
-         </children>
-      </HBox>
-      <HBox>
-         <children>
-			<BorderPane prefHeight="202.0" prefWidth="250.0">
-				<center>
-					<Pane fx:id="cadreTrois" BorderPane.alignment="CENTER" />
-				</center>
-            </BorderPane>
-            <BorderPane prefHeight="225.0" prefWidth="460.0">
-				<center>
-					<Pane fx:id="cadreQuatre" BorderPane.alignment="CENTER" />
-				</center>
-            </BorderPane>
-         </children>
-      </HBox>
+			<BorderPane cacheShape="false" centerShape="false" prefHeight="230.0" prefWidth="690.0">
+         <left>
+					<Pane fx:id="cadreUn" BorderPane.alignment="CENTER" prefWidth="410.0"/>
+         </left>
+         <right>
+					<Pane fx:id="cadreDeux" BorderPane.alignment="CENTER" prefWidth="125.0"/>
+         </right>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="155.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <BorderPane prefHeight="230.0" prefWidth="690.0">
+         <left>
+					<Pane fx:id="cadreTrois" BorderPane.alignment="CENTER" prefWidth="125.0"/>
+         </left>
+         <right>
+					<Pane fx:id="cadreQuatre" BorderPane.alignment="CENTER" prefWidth="410.0"/>
+         </right>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="155.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
    </children>
 </VBox>
