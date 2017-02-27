@@ -55,12 +55,6 @@ public class ControllerEditableAgencement {
 	private Label _labelCornerBorder;
 	
 	/**
-	 * Un label pour la couleur de la bordure
-	 */
-	@FXML
-	private Label _labelColorBorder;
-	
-	/**
 	 * Un label pour la couleur de fond
 	 */
 	@FXML
@@ -152,7 +146,6 @@ public class ControllerEditableAgencement {
 	 * Permet de rafraichir l'affichage
 	 */
 	public void refreshAffichage() {
-		this._labelColorBorder.setText(rectangleValues.getColorCadre().toString());
 		this._ColorBorderPicker.setValue(rectangleValues.getColorCadre());
 		
 		_labelTypeBorder.setText(rectangleValues.getStyleCadre());
@@ -197,7 +190,7 @@ public class ControllerEditableAgencement {
 	 */
 	public void click_border_color(ActionEvent e){
 		Color c = _ColorBorderPicker.getValue();
-		rectangleValues.setCoulorCadre(c);
+		rectangleValues.setColorCadre(c);
 		refreshAffichage();
 	}
 }

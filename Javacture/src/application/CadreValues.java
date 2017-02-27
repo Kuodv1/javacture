@@ -17,6 +17,8 @@ public class CadreValues {
 	 */
 	protected Color colorCadre;
 	
+	protected Color colorBack;
+	
 	/**
 	 * La largeur du cadre
 	 */
@@ -47,12 +49,9 @@ public class CadreValues {
 	 * @param rectangleToEdit
 	 */
 	public CadreValues(Rectangle rectangleToEdit) {
-		colorCadre = Color.WHITE;
-		widthCadre = 1;
-		radiusCadre = 1;
 		this.rectangleToEdit = rectangleToEdit;
 		img = null;
-		styleCadre="Plein";
+		defaultRectangle();
 	}
 	
 	/**
@@ -75,7 +74,7 @@ public class CadreValues {
 	 * Modifie la couleur du cadre
 	 * @param colorCadre
 	 */
-	public void setCoulorCadre(Color colorCadre) {
+	public void setColorCadre(Color colorCadre) {
 		this.colorCadre = colorCadre;
 		this.rectangleToEdit.setStroke(colorCadre);
 	}
@@ -86,6 +85,15 @@ public class CadreValues {
 	 */
 	public Color getColorCadre() {
 		return this.colorCadre;
+	}
+	
+	public void setColorBack(Color colorBack) {
+		this.colorBack = colorBack;
+		this.rectangleToEdit.setFill(colorBack);
+	}
+	
+	public Color getColorBack() {
+		return this.colorBack;
 	}
 	
 	/**
@@ -162,6 +170,14 @@ public class CadreValues {
 	public void setStyleCadrePointillé() {
 		styleCadre = "Pointillé";
 		rectangleToEdit.getStrokeDashArray().addAll(10d);
+	}
+	
+	public void defaultRectangle() {
+		this.setColorCadre(Color.BLACK);
+		this.setWidthCadre(1);
+		this.setRadiusCadre(1);
+		this.setStyleCadrePointillé();
+		this.setColorBack(Color.ORANGE);
 	}
 }
 
