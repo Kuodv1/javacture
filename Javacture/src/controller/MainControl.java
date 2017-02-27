@@ -54,7 +54,7 @@ public class MainControl {
 	/**
 	 * Le lien du deuxieme agencement
 	 */
-	final URL fxmlURLAgencementDeux = getClass().getResource("/fxml_folder/FXML_central_agencement_quatre.fxml");//Vue contenant les 3 agencements
+	final URL fxmlURLAgencementDeux = getClass().getResource("/fxml_folder/FXML_central_agencement_deux.fxml");//Vue contenant les 3 agencements
 	/**
 	 * Le lien du troisieme agencement
 	 */

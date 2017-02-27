@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class ControllerAgencementUn {
+public class ControllerAgencementDeux {
 
 	
 	
@@ -25,19 +25,19 @@ public class ControllerAgencementUn {
 	public Node cadreTrois;
 	
 	
-	public ControllerAgencementUn() {
+	public ControllerAgencementDeux() {
 		
 	}
 	
 	public void initialize() {
-		System.out.println("Agencement 1 coucou");
+		System.out.println("Agencement 2 coucou");
 		if(cadreUn==null)
 			System.out.println("Cadre null");
 		
 		System.out.println(cadreUn.toString());
 		Pane test = (Pane)cadreUn;
 		
-		Rectangle ra = new Rectangle(100,50,Color.ORANGE);
+		Rectangle ra = new Rectangle(200,450,Color.ORANGE);
 		CadreValues rectangleValues = new CadreValues(ra);
 		ra.setX(10);
 		ra.setY(10);
@@ -48,10 +48,10 @@ public class ControllerAgencementUn {
 		createNode(test,rectangleValues);
 		
 		Pane bpCadreDeux = (Pane)cadreDeux;
-		Rectangle ra2 = new Rectangle(600,100,Color.ORANGE);
+		Rectangle ra2 = new Rectangle(300,100,Color.ORANGE);
 		CadreValues rectangleValues2 = new CadreValues(ra2);
-		ra2.setX(10);
-		ra2.setY(10);
+		ra2.setX(30);
+		ra2.setY(30);
 
 		rectangleValues2.setCoulorCadre(Color.BLACK);
 		rectangleValues2.setWidthCadre(5);
@@ -59,10 +59,10 @@ public class ControllerAgencementUn {
 		createNode(bpCadreDeux,rectangleValues2);
 		
 		
-		Rectangle ra3 = new Rectangle(100,50,Color.ORANGE);
+		Rectangle ra3 = new Rectangle(300,100,Color.ORANGE);
 		CadreValues rectangleValues3 = new CadreValues(ra3);
-		ra3.setX(10);
-		ra3.setY(10);
+		ra3.setX(30);
+		ra3.setY(30);
 
 		rectangleValues3.setCoulorCadre(Color.BLACK);
 		rectangleValues3.setWidthCadre(5);
