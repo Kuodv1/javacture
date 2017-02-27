@@ -37,9 +37,9 @@ public class ControllerAgencementDeux {
 		System.out.println(cadreUn.toString());
 		Pane test = (Pane)cadreUn;
 		
-		Rectangle ra = new Rectangle(200,450,Color.ORANGE);
+		Rectangle ra = new Rectangle(300,430,Color.ORANGE);
 		CadreValues rectangleValues = new CadreValues(ra);
-		ra.setX(10);
+		//ra.setX(10);
 		ra.setY(10);
 
 		rectangleValues.setCoulorCadre(Color.BLACK);
@@ -48,10 +48,10 @@ public class ControllerAgencementDeux {
 		createNode(test,rectangleValues);
 		
 		Pane bpCadreDeux = (Pane)cadreDeux;
-		Rectangle ra2 = new Rectangle(300,100,Color.ORANGE);
+		Rectangle ra2 = new Rectangle(250,250,Color.ORANGE);
 		CadreValues rectangleValues2 = new CadreValues(ra2);
-		ra2.setX(30);
-		ra2.setY(30);
+		ra2.setX(150);
+		ra2.setY(10);
 
 		rectangleValues2.setCoulorCadre(Color.BLACK);
 		rectangleValues2.setWidthCadre(5);
@@ -59,10 +59,10 @@ public class ControllerAgencementDeux {
 		createNode(bpCadreDeux,rectangleValues2);
 		
 		
-		Rectangle ra3 = new Rectangle(300,100,Color.ORANGE);
+		Rectangle ra3 = new Rectangle(250,150,Color.ORANGE);
 		CadreValues rectangleValues3 = new CadreValues(ra3);
-		ra3.setX(30);
-		ra3.setY(30);
+		ra3.setX(150);
+		ra3.setY(140);
 
 		rectangleValues3.setCoulorCadre(Color.BLACK);
 		rectangleValues3.setWidthCadre(5);
