@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerAgencementDeux">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerAgencementDeux">
    <children>
-		<BorderPane minHeight="-Infinity" prefHeight="600.0">
+		<BorderPane minHeight="-Infinity" prefHeight="480.0">
 			<center>
 				<Pane fx:id="cadreUn" BorderPane.alignment="CENTER" />
 			</center>
