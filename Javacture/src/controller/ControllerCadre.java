@@ -32,7 +32,7 @@ import javafx.stage.Stage;
 
 /**
  * Classe qui permet de gerer un cadre
- * @author Goketsu et Kuod
+ * @author Benjamin et Louis
  *
  */
 public class ControllerCadre {
@@ -78,6 +78,10 @@ public class ControllerCadre {
 
 	}
 	
+	/**
+	 * Modifie les parametre du rectangle
+	 * @param rectangleValues les parametre voulu pour le rectangle
+	 */
 	public void setRectangleValues(CadreValues rectangleValues) {
 		this.rectangleValues = rectangleValues;
 		ra = rectangleValues.getRectangleToEdit();
@@ -87,7 +91,7 @@ public class ControllerCadre {
 	
 	/**
 	 * Gere l'evenement d'un clic souris
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	@FXML
 	public void onMouseClick(MouseEvent e) {
@@ -102,29 +106,9 @@ public class ControllerCadre {
 	}
 	
 	/**
-	 * ...
-	 * @param e
-	 */
-	@FXML
-	public void onMouseClickAnchorPane(MouseEvent e) {
-		if(e.getButton()==MouseButton.SECONDARY)
-			onMouseClickRightAnchorPane(e);
-		else
-			System.out.println("Aucune correspondance trouvé");
-	}
-	
-	/**
-	 * ...
-	 * @param e
-	 */
-	public void onMouseClickRightAnchorPane(MouseEvent e) {
-		System.out.println("Click droit sur le panel");
-	}
-	
-	/**
 	 * Gere un clic gauche de la souris pour faire apparaitre une nouvelle fenetre pour
 	 * charger une nouvelle image
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void onMouseClickLeft(MouseEvent e) {
 		uploadImage();
@@ -133,7 +117,7 @@ public class ControllerCadre {
 	/**
 	 * Gere un clic droit de la souris pour faire apparaitre une nouvelle fenetre pour modifier 
 	 * les parametre du cadre
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void onMouseClickRight(MouseEvent e) {
 		
@@ -180,7 +164,7 @@ public class ControllerCadre {
 	
 	/**
 	 * Modifie la couleur du fond
-	 * @param color
+	 * @param color la couleur du fond
 	 */
 	public void changeColor(String color){
 		fontColor = color;
@@ -190,7 +174,7 @@ public class ControllerCadre {
 	
 	/**
 	 * Modifie la couleur de la bordure
-	 * @param color
+	 * @param color la couleur de la bordure
 	 */
 	public void changeColorBorder(String color){
 		borderColor = color;
@@ -200,7 +184,7 @@ public class ControllerCadre {
 	
 	/**
 	 * Modifie l'epaisseur de la bordure
-	 * @param width
+	 * @param width l'epaisseur de la bordure
 	 */
 	public void changeWidthBorder(String width){
 		widthBorder = width;

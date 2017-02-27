@@ -10,13 +10,26 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Classe abstraite pour gérer les agencements
+ * @author Benjamin et Louis
+ *
+ */
 public abstract class ControllerAgencementAbstract {
 	
+	/**
+	 * Consturcteur vide
+	 */
 	public ControllerAgencementAbstract() {}
 	
 	public void initialize() {
 	}
 	
+	/**
+	 * Modifie le rectangle
+	 * @param cadre Le cadre qui contient le rectangle
+	 * @param rect le rectangle
+	 */
 	public void setRectangle(Pane cadre, Rectangle rect) {
 		CadreValues rectangleValues = new CadreValues(rect);
 		rect.setX(10);
@@ -24,6 +37,11 @@ public abstract class ControllerAgencementAbstract {
 		createNode(cadre,rectangleValues);
 	}
 	
+	/**
+	 * Creer la vue qui contient les images
+	 * @param cadre le cadre
+	 * @param rectangleValuesToAdd les parametres du rectangle
+	 */
 	public void createNode(Pane cadre, CadreValues rectangleValuesToAdd) {
 		URL fxmlURL = getClass().getResource("/fxml_folder/FXML_agencement.fxml");//Vue contenant les 3 agencements
     	FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);

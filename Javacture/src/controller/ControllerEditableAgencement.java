@@ -13,9 +13,9 @@ import javafx.scene.paint.Color;
 
 /**
  * 
- * @author Goketsu et Kuod
  * Classe qui permet d'interagir avec les elements d'une image
  * Permet de modifier le fond et la bordure
+ * @author Benjamin et Louis
  *
  */
 public class ControllerEditableAgencement {

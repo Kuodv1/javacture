@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 /**
  * 
  * Classe pour gerer les messages d'erreurs
- * @author Goketsu et Kuod
+ * @author Benjamin et Louis
  *
  */
 public class DialogMessage {

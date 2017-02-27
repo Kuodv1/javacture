@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 
 /**
  * Controlleur de la fenetre principale pour gerer les menus
- * @author Goketsu et Kuod
+ * @author Benjamin et Louis
  *
  */
 public class MainControl {

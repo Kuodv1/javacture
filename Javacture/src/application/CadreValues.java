@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 /**
  * Classe qui contient les parametres du rectangle ou on affiche l'image
- * @author Goketsu et Kuod
+ * @author Benjamin et Louis
  *
  */
 public class CadreValues {
@@ -17,6 +17,9 @@ public class CadreValues {
 	 */
 	protected Color colorCadre;
 	
+	/**
+	 * La couleur de base du rectangle
+	 */
 	protected Color colorBack;
 	
 	/**
@@ -25,7 +28,7 @@ public class CadreValues {
 	protected int widthCadre;
 	
 	/**
-	 * 
+	 * Le degré de courbure de la bordure
 	 */
 	protected int radiusCadre;
 	
@@ -87,11 +90,19 @@ public class CadreValues {
 		return this.colorCadre;
 	}
 	
+	/**
+	 * Modifie la couluer de base du rectangle
+	 * @param colorBack la couleur de base vous pour le rectangle
+	 */
 	public void setColorBack(Color colorBack) {
 		this.colorBack = colorBack;
 		this.rectangleToEdit.setFill(colorBack);
 	}
 	
+	/**
+	 * Recupere la couleur de base du rectangle
+	 * @return la couleur de base du rectangle
+	 */
 	public Color getColorBack() {
 		return this.colorBack;
 	}
@@ -114,7 +125,7 @@ public class CadreValues {
 	}
 	
 	/**
-	 * Modifie ...
+	 * Modifie le degré de courbure de la bordure
 	 * @param radiusCadre le degré de courbure voulu de la bordure
 	 */
 	public void setRadiusCadre(int radiusCadre) {
@@ -124,7 +135,7 @@ public class CadreValues {
 	}
 	
 	/**
-	 * Recupere ...
+	 * Recupere le degré de courbure de la bordure
 	 * @return le debgré de courbure de la bordure
 	 */
 	public int getRadiusCadre() {
@@ -172,6 +183,9 @@ public class CadreValues {
 		rectangleToEdit.getStrokeDashArray().addAll(10d);
 	}
 	
+	/**
+	 * Initialise les parametres de base du rectangle
+	 */
 	public void defaultRectangle() {
 		this.setColorCadre(Color.BLACK);
 		this.setWidthCadre(1);

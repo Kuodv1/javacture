@@ -19,7 +19,7 @@ import javafx.scene.shape.StrokeType;
 /**
  * 
  * La classe qui gere la fenetre principale de l'application
- * @author Goketsu et Kuod
+ * @author Benjamin et Louis
  *
  */
 public class Main extends Application {
