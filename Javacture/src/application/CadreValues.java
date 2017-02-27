@@ -44,7 +44,7 @@ public class CadreValues {
 	
 	/**
 	 * Constructeur des paramatres en fonction d'un rectangle
-	 * @param rectangleToEdit
+	 * @param rectangleToEdit le rectangle de reference
 	 */
 	public CadreValues(Rectangle rectangleToEdit) {
 		colorCadre = Color.WHITE;
@@ -57,7 +57,7 @@ public class CadreValues {
 	
 	/**
 	 * Modifie la valeur du rectangle
-	 * @param rectangleToEdit
+	 * @param rectangleToEdit le rectangle de reference
 	 */
 	public void setRectangleToEdit(Rectangle rectangleToEdit) {
 		this.rectangleToEdit = rectangleToEdit;
