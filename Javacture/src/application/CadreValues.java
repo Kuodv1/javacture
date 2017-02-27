@@ -65,7 +65,7 @@ public class CadreValues {
 	
 	/**
 	 * Recupere le rectangle
-	 * @return
+	 * @return le rectangle de reference
 	 */
 	public Rectangle getRectangleToEdit() {
 		return this.rectangleToEdit;
@@ -73,7 +73,7 @@ public class CadreValues {
 	
 	/**
 	 * Modifie la couleur du cadre
-	 * @param colorCadre
+	 * @param colorCadre la couleur qu'on veut pour le cadre
 	 */
 	public void setCoulorCadre(Color colorCadre) {
 		this.colorCadre = colorCadre;
@@ -82,7 +82,7 @@ public class CadreValues {
 	
 	/**
 	 * Recupere la couleur du cadre
-	 * @return
+	 * @return le couleur de fond du cadre
 	 */
 	public Color getColorCadre() {
 		return this.colorCadre;
@@ -90,7 +90,7 @@ public class CadreValues {
 	
 	/**
 	 * Modifie la largeur du cadre
-	 * @param widthCadre
+	 * @param widthCadre l'epaisseur voulu pour la bordure
 	 */
 	public void setWidthCadre(int widthCadre) {
 		this.widthCadre = widthCadre;
@@ -99,7 +99,7 @@ public class CadreValues {
 	
 	/**
 	 * Recupere la largeur du cadre
-	 * @return
+	 * @return l'epaisseur de la bordure
 	 */
 	public int getWidthCadre() {
 		return this.widthCadre;
@@ -107,7 +107,7 @@ public class CadreValues {
 	
 	/**
 	 * Modifie ...
-	 * @param radiusCadre
+	 * @param radiusCadre le degré de courbure voulu de la bordure
 	 */
 	public void setRadiusCadre(int radiusCadre) {
 		this.radiusCadre = radiusCadre;
@@ -117,7 +117,7 @@ public class CadreValues {
 	
 	/**
 	 * Recupere ...
-	 * @return
+	 * @return le debgré de courbure de la bordure
 	 */
 	public int getRadiusCadre() {
 		return this.radiusCadre;
@@ -125,7 +125,7 @@ public class CadreValues {
 	
 	/**
 	 * Recupere l'image
-	 * @return
+	 * @return l'image
 	 */
 	public Image getImage() {
 		return img;
@@ -133,7 +133,7 @@ public class CadreValues {
 	
 	/**
 	 * Modifie l'image
-	 * @param img
+	 * @param img l'image voulu dans le cadre
 	 */
 	public void setImage(Image img) {
 		this.img = img;
@@ -142,7 +142,7 @@ public class CadreValues {
 	
 	/**
 	 * Recupere le style du cadre
-	 * @return
+	 * @return le style du cadre
 	 */
 	public String getStyleCadre() {
 		return styleCadre;
