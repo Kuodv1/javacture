@@ -94,7 +94,7 @@ public class ControllerEditableAgencement {
 	 * @param style la chaine de caractere qui contient le code css
 	 * @param stringType le type de parametre
 	 * @param valueOccurence la valeur du parametre
-	 * @return
+	 * @return la chaine de caractere du tyle css
 	 */
 	public String reloadValue(String style, String stringType, int valueOccurence) {
 		return style.substring(valueOccurence+stringType.length(), style.indexOf(';',valueOccurence));
@@ -159,7 +159,7 @@ public class ControllerEditableAgencement {
 	
 	/**
 	 * Permet de modifier la courbe des coins du cadre
-	 * @param border le degres de courbur du cadre
+	 * @param borderRadius le degres de courbur du cadre
 	 */
 	public void setBorderRadius(int borderRadius){
 		this.rectangleValues.setRadiusCadre(borderRadius);
