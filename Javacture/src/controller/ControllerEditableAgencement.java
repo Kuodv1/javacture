@@ -145,6 +145,7 @@ public class ControllerEditableAgencement {
 	 */
 	public void changeWidthBorder(int widthBorderInt){
 		rectangleValues.setWidthCadre(widthBorderInt);
+		_labelWidthBorder.setText(""+widthBorderInt);
 	}
 	
 	/**

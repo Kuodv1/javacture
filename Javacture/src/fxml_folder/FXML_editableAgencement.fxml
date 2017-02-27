@@ -38,7 +38,7 @@
                   <Label fx:id="_labelCornerBorder" text="Carré" />
                </children>
             </HBox>
-            <Slider fx:id="_sliderCornerBorder" max="40.0" min="1.0" value="1.0" />
+            <Slider fx:id="_sliderCornerBorder" min="1.0" value="1.0" />
             <Pane prefHeight="15.0" prefWidth="239.0" />
             <HBox prefHeight="20.0" prefWidth="239.0">
                <children>
