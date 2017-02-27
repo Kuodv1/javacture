@@ -44,20 +44,14 @@ public class ControllerAgencementTrois {
 		CadreValues rectangleValues = new CadreValues(ra);
 		ra.setX(10);
 		ra.setY(10);
-
-		rectangleValues.setCoulorCadre(Color.BLACK);
-		rectangleValues.setWidthCadre(5);
 		
 		createNode(test,rectangleValues);
 		
 		Pane bpCadreDeux = (Pane)cadreDeux;
 		Rectangle ra2 = new Rectangle(100,200,Color.ORANGE);
 		CadreValues rectangleValues2 = new CadreValues(ra2);
-		ra2.setX(100);
+		ra2.setX(10);
 		ra2.setY(10);
-
-		rectangleValues2.setCoulorCadre(Color.BLACK);
-		rectangleValues2.setWidthCadre(5);
 		
 		createNode(bpCadreDeux,rectangleValues2);
 		
@@ -67,8 +61,6 @@ public class ControllerAgencementTrois {
 		ra3.setX(10);
 		ra3.setY(10);
 
-		rectangleValues3.setCoulorCadre(Color.BLACK);
-		rectangleValues3.setWidthCadre(5);
 		Pane bpCadreTrois = (Pane)cadreTrois;
 		createNode(bpCadreTrois,rectangleValues3);
 		
@@ -78,8 +70,6 @@ public class ControllerAgencementTrois {
 		ra4.setX(10);
 		ra4.setY(10);
 
-		rectangleValues4.setCoulorCadre(Color.BLACK);
-		rectangleValues4.setWidthCadre(5);
 		Pane bpCadreQuatre = (Pane)cadreQuatre;
 		createNode(bpCadreQuatre, rectangleValues4);
 	}

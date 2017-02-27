@@ -18,7 +18,7 @@
                   <Label fx:id="_labelWidthBorder" alignment="CENTER" text="1" />
                </children>
             </HBox>
-            <Slider fx:id="_sliderWidthBorder" max="10.0" min="1.0" value="1.0" />
+            <Slider fx:id="_sliderWidthBorder" max="10.0" min="0.0" value="1.0" />
             <Pane prefHeight="21.0" prefWidth="239.0" />
             <HBox prefHeight="30.0" prefWidth="239.0">
                <children>
@@ -34,8 +34,8 @@
             </HBox>
             <HBox prefHeight="29.0" prefWidth="239.0">
                <children>
-                  <Label text="Type de coin de la bordure : " />
-                  <Label fx:id="_labelCornerBorder" text="Carré" />
+                  <Label text="Degré de courbure des coins : " />
+                  <Label fx:id="_labelCornerBorder" text="1" />
                </children>
             </HBox>
             <Slider fx:id="_sliderCornerBorder" min="1.0" value="1.0" />
@@ -43,9 +43,6 @@
             <HBox prefHeight="20.0" prefWidth="239.0">
                <children>
                   <Label text="Couleur de bordure : " />
-                  <Label fx:id="_labelColorBorder" text="Blanc" />
-                  <Pane prefHeight="20.0" prefWidth="24.0" />
-                  <Pane fx:id="_paneColorBorder" prefHeight="26.0" prefWidth="28.0" />
                </children>
             </HBox>
             <ColorPicker fx:id="_ColorBorderPicker" onAction="#click_border_color" />

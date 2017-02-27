@@ -8,20 +8,20 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerAgencementDeux">
    <children>
-		<BorderPane minHeight="-Infinity" prefHeight="480.0">
+		<BorderPane minHeight="-Infinity" prefHeight="450.0" prefWidth="400.0">
 			<center>
 				<Pane fx:id="cadreUn" BorderPane.alignment="CENTER" />
 			</center>
 		</BorderPane>
-      <VBox prefHeight="600.0" prefWidth="100.0">
+      <VBox prefHeight="450.0" prefWidth="250.0">
          <children>
-            <BorderPane minHeight="-Infinity" prefHeight="150.0">
+            <BorderPane minHeight="-Infinity" prefHeight="270.0" prefWidth="290">
          		<center>
          			<Pane fx:id="cadreDeux" BorderPane.alignment="CENTER" />
          		</center>
       		</BorderPane>
       		
-			<BorderPane minHeight="-Infinity" prefHeight="150.0">
+			<BorderPane minHeight="-Infinity" prefHeight="150.0" prefWidth="290">
          		<center>
          			<Pane fx:id="cadreTrois" BorderPane.alignment="CENTER" />
          		</center>
