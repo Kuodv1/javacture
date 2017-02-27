@@ -228,7 +228,7 @@ public class MainControl {
         VBox root = new VBox();
         ColorPicker colorPicker = new ColorPicker();
         root.getChildren().add(colorPicker);
-        Scene scene = new Scene(root, 200, 100);
+        Scene scene = new Scene(root, 300, 100);
         
         colorPicker.setOnAction(event -> {
             System.out.println("couleur : "+colorPicker.getValue().toString().substring(1,8));
@@ -238,6 +238,7 @@ public class MainControl {
         });
         
         stage.setScene(scene);
+        stage.setTitle("Changer la couleur de fond...");
         stage.show();
 	}
 	

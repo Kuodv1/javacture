@@ -50,6 +50,7 @@ public class Main extends Application {
 			mc.init_scene(scene);
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("Frame Not Magic");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
