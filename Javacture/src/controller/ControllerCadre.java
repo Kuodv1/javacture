@@ -75,16 +75,14 @@ public class ControllerCadre {
 	 * Initialise les composants pour le cadre
 	 */
 	public void initialize() {
-		ra = new Rectangle(_cadreImage.getPrefWidth(),_cadreImage.getPrefHeight(),Color.ORANGE);
-		rectangleValues = new CadreValues(ra);
-		//ra.setX(5);
-		//ra.setY(5);
 
-		rectangleValues.setCoulorCadre(Color.BLACK);
-		rectangleValues.setWidthCadre(5);
-		//ra.setStrokeType(StrokeType.OUTSIDE);
-		
-		_cadreImage.getChildren().add(ra);
+	}
+	
+	public void setRectangleValues(CadreValues rectangleValues) {
+		this.rectangleValues = rectangleValues;
+		ra = rectangleValues.getRectangleToEdit();
+		_cadreImage.getChildren().clear();
+		_cadreImage.getChildren().add(rectangleValues.getRectangleToEdit());
 	}
 	
 	/**

@@ -81,7 +81,7 @@ public class ControllerAgencementUn {
 			e1.printStackTrace();
 		}
 
-		ControllerImageDeux cid = fxmlLoader.getController();
+		ControllerCadre cid = fxmlLoader.getController();
 		cid.setRectangleValues(rectangleValuesToAdd);
 	}
 	
