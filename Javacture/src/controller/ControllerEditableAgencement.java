@@ -91,9 +91,9 @@ public class ControllerEditableAgencement {
 	
 	/**
 	 * Fonction pour decouper la chaine de caractere en parametres
-	 * @param style : la chaine de caractere qui contient le code css
-	 * @param stringType
-	 * @param valueOccurence
+	 * @param style la chaine de caractere qui contient le code css
+	 * @param stringType le type de parametre
+	 * @param valueOccurence la valeur du parametre
 	 * @return
 	 */
 	public String reloadValue(String style, String stringType, int valueOccurence) {
@@ -102,7 +102,7 @@ public class ControllerEditableAgencement {
 	
 	/**
 	 * Modifie les parametres du rectangle
-	 * @param rectangleValues
+	 * @param rectangleValues les parametre du rectangle
 	 */
 	public void setRectangleToEdit(CadreValues rectangleValues) {
 		this.rectangleValues = rectangleValues;
@@ -135,7 +135,7 @@ public class ControllerEditableAgencement {
 	
 	/**
 	 * Permet de changer l'epaisseur de la bordure en fonction de la valeur du curseur
-	 * @param widthBorderInt : epaisseur de la bordure
+	 * @param widthBorderInt epaisseur de la bordure
 	 */
 	public void changeWidthBorder(int widthBorderInt){
 		rectangleValues.setWidthCadre(widthBorderInt);
@@ -159,7 +159,7 @@ public class ControllerEditableAgencement {
 	
 	/**
 	 * Permet de modifier la courbe des coins du cadre
-	 * @param border : le degres de courbur du cadre
+	 * @param border le degres de courbur du cadre
 	 */
 	public void setBorderRadius(int borderRadius){
 		this.rectangleValues.setRadiusCadre(borderRadius);
@@ -168,7 +168,7 @@ public class ControllerEditableAgencement {
 	
 	/**
 	 * Modifie le style de bordure en point
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_point_border(ActionEvent e){
 		this.rectangleValues.setStyleCadrePointillé();
@@ -177,7 +177,7 @@ public class ControllerEditableAgencement {
 	
 	/**
 	 * Modifie le style de borudure en normal
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_plein_border(ActionEvent e){
 		this.rectangleValues.setStyleCadrePlein();
@@ -186,7 +186,7 @@ public class ControllerEditableAgencement {
 	
 	/**
 	 * Modifie la couleur de bordure en fonction du color picker
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_border_color(ActionEvent e){
 		Color c = _ColorBorderPicker.getValue();

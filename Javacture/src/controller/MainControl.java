@@ -72,7 +72,7 @@ public class MainControl {
 	
 	/**
 	 * Initialise la scene
-	 * @param scene
+	 * @param scene la scene principale de l'application
 	 */
 	public void init_scene(Scene scene) {
 		this.scene = scene;
@@ -80,7 +80,7 @@ public class MainControl {
 	
 	/**
 	 * Charge un agencement en fonction de son lien
-	 * @param fxmlURL
+	 * @param fxmlURL l'url de l'image qu'on veut
 	 */
 	public void loaderFXML(URL fxmlURL) {
 		this._VBoxCentral.getChildren().clear();
@@ -95,7 +95,7 @@ public class MainControl {
 	
 	/**
 	 * Gere un clic sur le sous-menu agencement 1
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_agencement_un(ActionEvent e) {
 		System.out.println("Choix agencement un");
@@ -105,7 +105,7 @@ public class MainControl {
 	
 	/**
 	 * Gere un clic sur le sous-menu agencement 2
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_agencement_deux(ActionEvent e) {
 		System.out.println("Choix agencement deux");
@@ -116,7 +116,7 @@ public class MainControl {
 	
 	/**
 	 * Gere un clic sur le sous-menu agencement 3
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_agencement_trois(ActionEvent e) {
 		System.out.println("Choix agencement trois");
@@ -126,9 +126,9 @@ public class MainControl {
 	
 	/**
 	 * Sauvegarde l'image
-	 * @param bImage
-	 * @param type
-	 * @param path
+	 * @param bImage l'image burffered
+	 * @param type le type d'image
+	 * @param path le chemin vers l'image
 	 */
 	public void save_image(BufferedImage bImage, String type, File path) {
 
@@ -147,8 +147,8 @@ public class MainControl {
 	}
 	
 	/**
-	 * Gere un clicsur le sous-menu pour exporter l'image en jpeg
-	 * @param e
+	 * Gere un clic sur le sous-menu pour exporter l'image en jpeg
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_export_jpeg(ActionEvent e) {
 		System.out.println("Export jpeg !");
@@ -165,8 +165,8 @@ public class MainControl {
 
 	
 	/**
-	 * Gere un clicsur le sous-menu pour exporter l'image en bmp
-	 * @param e
+	 * Gere un clic sur le sous-menu pour exporter l'image en bmp
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_export_bmp(ActionEvent e) {
 		System.out.println("Export bmp !");
@@ -183,8 +183,8 @@ public class MainControl {
 
 	
 	/**
-	 * Gere un clicsur le sous-menu pour exporter l'image en png
-	 * @param e
+	 * Gere un clic sur le sous-menu pour exporter l'image en png
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_export_png(ActionEvent e) {
 		System.out.println("Export png !");
@@ -199,8 +199,8 @@ public class MainControl {
 	
 	/**
 	 * Recupere l'image que l'on veut inclure
-	 * @param type
-	 * @return
+	 * @param type le type d'image
+	 * @return le fichier choisi
 	 */
 	public File getFileChooser(String type) {
 		JFileChooser fc = new JFileChooser();
@@ -218,7 +218,7 @@ public class MainControl {
 	
 	/**
 	 * Gere le changement de couleur de fond via le sous-menu approprié
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_change_color(ActionEvent e){
 		System.out.println(" test couleur");
@@ -244,7 +244,7 @@ public class MainControl {
 	
 	/**
 	 * Gere le clic sur le sous-menu close
-	 * @param e
+	 * @param e l'evenement declencher par une action de l'utilisateur
 	 */
 	public void click_close(ActionEvent e) {
 		System.exit(0);
