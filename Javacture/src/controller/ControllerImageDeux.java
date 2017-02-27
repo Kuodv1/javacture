@@ -46,7 +46,7 @@ public class ControllerImageDeux {
 	public ControllerImageDeux() {}
 	
 	public void initialize() {
-		ra = new Rectangle(100,50,Color.ORANGE);
+		/*ra = new Rectangle(100,50,Color.ORANGE);
 		rectangleValues = new CadreValues(ra);
 		ra.setX(50);
 		ra.setY(80);
@@ -55,7 +55,14 @@ public class ControllerImageDeux {
 		rectangleValues.setWidthCadre(5);
 		//ra.setStrokeType(StrokeType.OUTSIDE);
 		
-		_cadreImage.getChildren().add(ra);
+		_cadreImage.getChildren().add(ra);*/
+	}
+	
+	public void setRectangleValues(CadreValues rectangleValues) {
+		this.rectangleValues = rectangleValues;
+		ra = rectangleValues.getRectangleToEdit();
+		_cadreImage.getChildren().clear();
+		_cadreImage.getChildren().add(rectangleValues.getRectangleToEdit());
 	}
 	
 	@FXML
